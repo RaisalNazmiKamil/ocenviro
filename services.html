@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - PT. OC ENVIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        :root { 
+            --primary-orange: #f27420; 
+            --orange-hover: #d95d08;
+            --dark-navy: #0f2137; 
+            --deep-navy: #081426;
+            --light-bg: #f8fafc; 
+            --text-dark: #1e293b; 
+            --gray-text: #64748b; 
+            --border-color: #e2e8f0;
+            --footer-dark: #0a1626;
+        }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER & NAVBAR */
+        header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-bottom: 1px solid var(--border-color); }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .logo-img { height: 38px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+        .nav-links a { color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-orange); }
+        .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .cta-btn:hover { background-color: var(--orange-hover); }
+
+        /* PAGE HEADER */
+        .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 4.5rem 1rem 4rem; }
+        .animated-title { font-size: 2.5rem; font-weight: 700; opacity: 0; transform: translateY(25px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; display: inline-block; }
+        .animated-title span { color: var(--primary-orange); }
+        .title-accent-line { width: 0; height: 3px; background: var(--primary-orange); margin: 12px auto 0; border-radius: 2px; animation: lineExpand 0.8s ease forwards 0.8s; }
+        .animated-subtitle { font-size: 1.05rem; color: #94a3b8; margin-top: 1.2rem; opacity: 0; transform: translateY(15px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s; }
+
+        @keyframes corporateFadeIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes lineExpand { to { width: 80px; } }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+
+        /* DETAILED SERVICE SECTIONS */
+        .service-detail-card {
+            background: #ffffff; border-radius: 8px; border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-orange); padding: 2.5rem; margin-bottom: 3.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease;
+        }
+
+        .service-detail-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(242, 116, 32, 0.1); }
+        .service-detail-card h2 { color: var(--dark-navy); font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 0.6rem; }
+
+        .img-stack-vertical { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 1.8rem; width: 100%; }
+        .service-img-box { width: 100%; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); background: #ffffff; display: flex; align-items: center; justify-content: center; }
+        .service-img { width: 100%; height: auto; display: block; object-fit: contain; transition: transform 0.4s ease; }
+
+        .ratio-2429-567 { aspect-ratio: 2429 / 567; }
+        .ratio-956-596 { aspect-ratio: 956 / 596; max-width: 750px; margin: 0 auto; }
+        .ratio-930-333 { aspect-ratio: 930 / 333; }
+
+        .service-detail-card:hover .service-img { transform: scale(1.02); }
+        .service-body-text { color: var(--gray-text); font-size: 1rem; line-height: 1.7; margin-bottom: 1.2rem; }
+        .service-feature-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; }
+        .service-feature-list li { position: relative; padding-left: 1.5rem; color: var(--text-dark); font-size: 0.95rem; font-weight: 600; }
+        .service-feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-orange); font-weight: bold; }
+
+        /* R&D BOX */
+        .rnd-box { background: linear-gradient(135deg, #0f2137 0%, #162d47 100%); color: #fff; padding: 3rem 2.5rem; border-radius: 10px; border-top: 4px solid var(--primary-orange); text-align: center; margin-top: 2rem; }
+        .rnd-box h2 { color: var(--primary-orange); font-size: 1.8rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .rnd-box p { color: #cbd5e1; font-size: 1rem; max-width: 700px; margin: 0 auto 2rem; }
+        .rnd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+        .rnd-item { background: rgba(255, 255, 255, 0.05); padding: 1.2rem 1rem; border-radius: 6px; border: 1px solid rgba(242, 116, 32, 0.4); font-weight: 600; font-size: 0.92rem; transition: all 0.3s; }
+        .rnd-item:hover { background: var(--primary-orange); color: #fff; transform: translateY(-4px); }
+
+        /* FOOTER COMPONENT - MODERN ELEGAN DARK NAVY */
+        footer { 
+            background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
+            color: #94a3b8; 
+            border-top: 3px solid var(--primary-orange); 
+            font-size: 0.9rem; 
+            padding-top: 4.5rem; 
+            margin-top: 5rem;
+        }
+        
+        .footer-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2.5rem 4rem; 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr 1.4fr; 
+            gap: 3.5rem; 
+            align-items: start;
+        }
+
+        .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .footer-brand h3 span { color: var(--primary-orange); }
+        .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
+
+        .footer-col h4 { 
+            font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
+            margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
+        }
+
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
+
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.92rem; display: inline-block; }
+        .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(5px); }
+
+        .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.5rem; }
+        .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+        .contact-info-list li { color: #cbd5e1; font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
+        
+        .contact-icon {
+            width: 30px; height: 30px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
+            border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
+        }
+
+        .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 1.4rem 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
+
+        .reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
+    
+        /* ============ MOBILE NAVIGATION (HAMBURGER MENU) ============ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1200;
+        }
+        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-only-item { display: none; }
+
+        @media (max-width: 860px) {
+            .hamburger { display: flex; }
+            .navbar > .cta-btn { display: none; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 78%;
+                max-width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 5.5rem 1.8rem 2rem;
+                box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
+                z-index: 1100;
+                overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; padding: 0.85rem 0; font-size: 0.92rem; border-bottom: 1px solid var(--border-color); }
+            .mobile-only-item { display: block; margin-top: 0.8rem; }
+            .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
+        }
+
+        /* ============ MOBILE READABILITY (SMALLER TEXT ON PHONES) ============ */
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+        }
+        @media (max-width: 480px) {
+            html { font-size: 13.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="PT. OC ENVIRO Logo" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" class="active">Our Services</a></li>
+                <li><a href="projects.html">Projects & Clients</a></li>
+                <li><a href="equipments.html">Equipments</a></li>
+                            <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1 class="animated-title">Our <span>Services</span></h1>
+        <div class="title-accent-line"></div>
+        <p class="animated-subtitle">Integrated Solutions for Marine Survey, Environmental Modeling, and Coastal Engineering</p>
+    </div>
+
+    <div class="container">
+        <!-- SERVICE 1 -->
+        <div class="service-detail-card reveal" id="survey">
+            <h2>1. Survey and Site Investigation</h2>
+            <div class="img-stack-vertical">
+                <div class="service-img-box ratio-2429-567">
+                    <img src="images/services1-1.jpg" alt="Survey Equipment Deployment" class="service-img">
+                </div>
+                <div class="service-img-box ratio-2429-567">
+                    <img src="images/services1-2.jpg" alt="Field Survey Operations" class="service-img">
+                </div>
+            </div>
+            <p class="service-body-text">
+                Comprehensive site investigation services delivering high-precision physical data for offshore and coastal developments. We utilize advanced hydrographic sonar, geophysical profilers, and geotechnical drilling to assess seabed conditions, soil stability, and navigation safety.
+            </p>
+            <ul class="service-feature-list">
+                <li>Bathymetric & Hydrographic Mapping (Singlebeam / Multibeam)</li>
+                <li>Sub-Bottom Profiling (SBP) & Side Scan Sonar (SSS)</li>
+                <li>Marine Geotechnical Drilling & Cone Penetration Testing (CPT)</li>
+                <li>Met-Oceanographic Current, Tide & Wave Data Collection</li>
+            </ul>
+        </div>
+
+        <!-- SERVICE 2 -->
+        <div class="service-detail-card reveal" id="modelling">
+            <h2>2. Ocean Environmental Modelling</h2>
+            <div class="img-stack-vertical">
+                <div class="service-img-box ratio-956-596">
+                    <img src="images/services2.jpg" alt="Ocean Hydrodynamic Simulation" class="service-img">
+                </div>
+            </div>
+            <p class="service-body-text">
+                Advanced 2D and 3D numerical simulations analyzing hydrodynamic behaviors, thermal discharges, and sediment transport in coastal and estuarine systems. Our models support environmental impact assessments (EIA) and thermal plume dispersion analysis for power plants and industrial facilities.
+            </p>
+            <ul class="service-feature-list">
+                <li>Hydrodynamic & Wave Climate Modeling</li>
+                <li>Thermal & Power Plant Cooling Water Dispersion Analysis</li>
+                <li>Particle Tracking & Dredge Plume Dispersion Modeling</li>
+                <li>Coastal Sediment Transport & Morphology Simulation</li>
+            </ul>
+        </div>
+
+        <!-- SERVICE 3 -->
+        <div class="service-detail-card reveal" id="gis">
+            <h2>3. GIS (Geographic Information System)</h2>
+            <div class="img-stack-vertical">
+                <div class="service-img-box ratio-930-333">
+                    <img src="images/services3.jpg" alt="GIS Spatial Data Mapping" class="service-img">
+                </div>
+            </div>
+            <p class="service-body-text">
+                Spatial data processing, spatial database design, and geographic information modeling for coastal zone management and marine spatial planning. We deliver accurate geo-referenced maps and interactive spatial dashboards for complex marine logistics and resource management.
+            </p>
+            <ul class="service-feature-list">
+                <li>Marine Spatial Planning & Coastal Zoning Maps</li>
+                <li>Seabed Habitat & Biota Spatial Mapping</li>
+                <li>UAV Aerial Photogrammetry & Topographic GIS Integration</li>
+                <li>Geospatial Database Management & Satellite Remote Sensing</li>
+            </ul>
+        </div>
+
+        <!-- SERVICE 4 -->
+        <div class="service-detail-card reveal" id="onshore">
+            <h2>4. Onshore Engineering Design</h2>
+            <div class="img-stack-vertical">
+                <div class="service-img-box ratio-930-333">
+                    <img src="images/services4.jpg" alt="Onshore Port and Jetty Design" class="service-img">
+                </div>
+            </div>
+            <p class="service-body-text">
+                Detailed Engineering Design (DED) for coastal structures, port terminals, jetties, and shoreline protection systems. We integrate environmental data with structural engineering to build resilient and cost-effective coastal infrastructure.
+            </p>
+            <ul class="service-feature-list">
+                <li>Jetty, Wharf & Breakwater Structural Design</li>
+                <li>Reclamation & Coastal Seawall Engineering</li>
+                <li>Dredging Channel & Port Basin Layout Design</li>
+                <li>Slope Stability & Foundation Engineering</li>
+            </ul>
+        </div>
+
+        <!-- SERVICE 5 -->
+        <div class="service-detail-card reveal" id="offshore">
+            <h2>5. Offshore Engineering Design</h2>
+            <div class="img-stack-vertical">
+                <div class="service-img-box ratio-2429-567">
+                    <img src="images/services5.jpg" alt="Offshore Structure Engineering" class="service-img">
+                </div>
+            </div>
+            <p class="service-body-text">
+                Specialized engineering solutions for offshore energy structures, subsea pipeline routing, and mooring revitalization. Our technical team conducts environmental criteria estimation and structural integrity assessments under extreme wave and current loading conditions.
+            </p>
+            <ul class="service-feature-list">
+                <li>Subsea Pipeline & Cable Route Engineering</li>
+                <li>Mooring System Revitalization & Mooring Line Analysis</li>
+                <li>Offshore Platform Foundation Assessment</li>
+                <li>Metocean Extreme Operating Criteria Calculation</li>
+            </ul>
+        </div>
+
+        <!-- R&D -->
+        <div class="rnd-box reveal">
+            <h2>Research & Development (R&D)</h2>
+            <p>In-house marine instrument and device development by PT. OC ENVIRO to enhance field research efficiency and accuracy:</p>
+            <div class="rnd-grid">
+                <div class="rnd-item">AWLR (Water Level Recorder)</div>
+                <div class="rnd-item">Current Meter</div>
+                <div class="rnd-item">ASV (Autonomous Surface Vehicle)</div>
+                <div class="rnd-item">Met-Ocean Online Data System</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>PT. OC <span>ENVIRO</span></h3>
+                <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Projects & Clients</a></li>
+                    <li><a href="equipments.html">Equipments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-card">
+                    <ul class="contact-info-list">
+                        <li><span class="contact-icon">📍</span><span>Komplek Bukit Cimindi Raya, Blok J No 12, Kota Cimahi, Jawa Barat 40513</span></li>
+                        <li><span class="contact-icon">📞</span><span>+62 22 8600 2246</span></li>
+                        <li><span class="contact-icon">✉️</span><span>info@ocenviro.com</span></li>
+                        <li><span class="contact-icon">🌐</span><span>ocenviro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 - OC ENVIRO.Inc - Bandung. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    </script>
+
+    <script>
+        // MOBILE HAMBURGER MENU TOGGLE (no dark backdrop, page stays bright & clickable)
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburgerBtn').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+        }
+        // Auto-close the menu once a menu link is tapped, so navigation feels natural
+        document.querySelectorAll('#navLinks a').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>

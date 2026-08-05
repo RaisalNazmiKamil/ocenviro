@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Clients - PT. OC ENVIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        :root { 
+            --primary-orange: #f27420; 
+            --orange-hover: #d95d08;
+            --dark-navy: #0f2137; 
+            --deep-navy: #081426;
+            --light-bg: #f8fafc; 
+            --text-dark: #1e293b; 
+            --gray-text: #64748b; 
+            --border-color: #e2e8f0;
+            --footer-dark: #0a1626;
+        }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-bottom: 1px solid var(--border-color); }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .logo-img { height: 38px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+        .nav-links a { color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-orange); }
+        .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .cta-btn:hover { background-color: var(--orange-hover); }
+
+        .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 4.5rem 1rem 4rem; }
+        .animated-title { font-size: 2.3rem; font-weight: 700; opacity: 0; transform: translateY(25px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; display: inline-block; }
+        .animated-title span { color: var(--primary-orange); }
+        .title-accent-line { width: 0; height: 3px; background: var(--primary-orange); margin: 12px auto 0; border-radius: 2px; animation: lineExpand 0.8s ease forwards 0.8s; }
+        .animated-subtitle { font-size: 1.05rem; color: #94a3b8; margin-top: 1.2rem; opacity: 0; transform: translateY(15px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s; }
+
+        @keyframes corporateFadeIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes lineExpand { to { width: 80px; } }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .main-title { color: var(--dark-navy); font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; font-weight: 700; }
+
+        .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 3.5rem; }
+        .filter-btn { background: #fff; color: var(--dark-navy); border: 1px solid var(--border-color); padding: 0.45rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.25s ease; }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary-orange); color: #fff; border-color: var(--primary-orange); box-shadow: 0 4px 12px rgba(242, 116, 32, 0.2); }
+
+        .timeline { position: relative; padding-left: 2rem; border-left: 2px solid var(--primary-orange); margin-left: 1rem; }
+        .year-group { margin-bottom: 3.5rem; position: relative; }
+        .year-heading { position: relative; display: inline-block; background: var(--dark-navy); color: var(--primary-orange); font-size: 1.1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 20px; margin-bottom: 1.5rem; }
+        .year-heading::before { content: ''; position: absolute; left: -2.65rem; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--primary-orange); border: 3px solid var(--dark-navy); border-radius: 50%; }
+
+        .project-list { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        .project-item { background: #fff; padding: 1.5rem 1.8rem; border-radius: 8px; border: 1px solid var(--border-color); border-left: 4px solid var(--primary-orange); transition: all 0.3s; }
+        .project-item:hover { transform: translateX(6px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); border-left-color: var(--dark-navy); }
+        .project-item h4 { color: var(--dark-navy); font-size: 1.05rem; margin-bottom: 8px; font-weight: 700; }
+        .project-item .scope-tag { display: inline-block; background: rgba(242, 116, 32, 0.1); color: var(--primary-orange); font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .project-item p { color: var(--gray-text); font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
+        .project-item p svg { width: 16px; height: 16px; stroke: var(--primary-orange); flex-shrink: 0; }
+
+        /* CLIENT LOGOS GRID - PERSISI 6 KOLOM X 3 BARIS */
+        .client-section { text-align: center; margin-top: 4rem; background: #fff; padding: 3.5rem 2rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .client-section h2 { color: var(--dark-navy); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .client-section p.sub { color: var(--gray-text); font-size: 0.9rem; margin-bottom: 2.5rem; }
+        
+        /* GRID 6 KOLOM PRESISI */
+        .client-logo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 1.2rem; 
+            align-items: center; 
+            justify-items: center; 
+        }
+        
+        .client-logo-card {
+            background: #ffffff; 
+            padding: 0.8rem; 
+            border-radius: 10px; 
+            border: 1px solid var(--border-color);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 100%; 
+            height: 85px; 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; 
+            cursor: pointer;
+        }
+
+        .client-logo-card:hover { 
+            border-color: var(--primary-orange); 
+            transform: translateY(-4px); 
+            box-shadow: 0 8px 20px rgba(242, 116, 32, 0.15); 
+            z-index: 100;
+        }
+
+        .client-logo-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+        /* HOVER POPUP CARD ELEGAN (MUNCUL OTOMATIS SAAT KURSOR DIARAHKAN) */
+        .client-hover-popup {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            width: 260px;
+            background: #0f2137;
+            color: #ffffff;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(8, 20, 38, 0.35);
+            border-top: 3px solid var(--primary-orange);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+            z-index: 999;
+        }
+
+        /* PANAH INDIKATOR POPUP HOVER */
+        .client-hover-popup::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 7px;
+            border-style: solid;
+            border-color: #0f2137 transparent transparent transparent;
+        }
+
+        .client-hover-popup h4 {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .client-hover-popup .badge {
+            display: inline-block;
+            color: var(--primary-orange);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-hover-popup p {
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* REAKSI HOVER AKSI MUNCUL POPUP */
+        .client-logo-card:hover .client-hover-popup {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-12px);
+        }
+
+        /* FOOTER COMPONENT - MODERN ELEGAN DARK NAVY */
+        footer { 
+            background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
+            color: #94a3b8; 
+            border-top: 3px solid var(--primary-orange); 
+            font-size: 0.9rem; 
+            padding-top: 4.5rem; 
+            margin-top: 5rem;
+        }
+        
+        .footer-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2.5rem 4rem; 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr 1.4fr; 
+            gap: 3.5rem; 
+            align-items: start;
+        }
+
+        .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .footer-brand h3 span { color: var(--primary-orange); }
+        .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
+
+        .footer-col h4 { 
+            font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
+            margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
+        }
+
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
+
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.92rem; display: inline-block; }
+        .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(5px); }
+
+        .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.5rem; }
+        .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+        .contact-info-list li { color: #cbd5e1; font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
+        
+        .contact-icon {
+            width: 30px; height: 30px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
+            border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
+        }
+
+        .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 1.4rem 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
+
+        .reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) { .client-logo-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
+        @media (max-width: 600px) { .client-logo-grid { grid-template-columns: repeat(2, 1fr); } }
+    
+        /* ============ MOBILE NAVIGATION (HAMBURGER MENU) ============ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1200;
+        }
+        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-only-item { display: none; }
+
+        @media (max-width: 860px) {
+            .hamburger { display: flex; }
+            .navbar > .cta-btn { display: none; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 78%;
+                max-width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 5.5rem 1.8rem 2rem;
+                box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
+                z-index: 1100;
+                overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; padding: 0.85rem 0; font-size: 0.92rem; border-bottom: 1px solid var(--border-color); }
+            .mobile-only-item { display: block; margin-top: 0.8rem; }
+            .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
+        }
+
+        /* ============ MOBILE READABILITY (SMALLER TEXT ON PHONES) ============ */
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+        }
+        @media (max-width: 480px) {
+            html { font-size: 13.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="PT. OC ENVIRO Logo" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html" class="active">Projects & Clients</a></li>
+                <li><a href="equipments.html">Equipments</a></li>
+                            <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 class="animated-title">Key Project Experiences <span>& Clients</span></h1>
+        <div class="title-accent-line"></div>
+        <p class="animated-subtitle">Proven Track Record of Strategic Projects by PT. OC ENVIRO Across Indonesia</p>
+    </div>
+
+    <div class="container">
+        <h2 class="main-title reveal">Key Project Experiences</h2>
+
+        <!-- FILTER BUTTONS: DEFAULT 2024 ACTIVE -->
+        <div class="filter-container reveal">
+            <button class="filter-btn active" onclick="filterYear('2024', event)">2024</button>
+            <button class="filter-btn" onclick="filterYear('2023', event)">2023</button>
+            <button class="filter-btn" onclick="filterYear('2022', event)">2022</button>
+            <button class="filter-btn" onclick="filterYear('2021', event)">2021</button>
+            <button class="filter-btn" onclick="filterYear('2020', event)">2020</button>
+            <button class="filter-btn" onclick="filterYear('2019', event)">2019</button>
+            <button class="filter-btn" onclick="filterYear('2018', event)">2018</button>
+            <button class="filter-btn" onclick="filterYear('2017', event)">2017</button>
+            <button class="filter-btn" onclick="filterYear('2016', event)">2016</button>
+            <button class="filter-btn" onclick="filterYear('2015', event)">2015</button>
+            <button class="filter-btn" onclick="filterYear('all', event)">All Years</button>
+        </div>
+
+        <div class="timeline">
+            <!-- 2024 -->
+            <div class="year-group reveal" data-year="2024">
+                <div class="year-heading">2024</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Design</span>
+                        <h4>Technical Advisory Ocean Engineer</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kep. Seribu, Jakarta | Client: PT Pandega Desain Weharima</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Bathymetry Survey in Siak</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Siak | Client: PT MOSES ENGINEERING</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Modelling & Design Engineering</span>
+                        <h4>Desain Thermal Dispersion Timor 1</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Timor | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Advanced Soil Investigation for Ammonia Urea Plant Area in Fakfak</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Fakfak | Client: PT Pupuk Kalimantan Timur (PKT)</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Oceanography Survey Opus Bay Batam</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa Infrayasa</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Design</span>
+                        <h4>Coastal Engineering Design Opus Bay Batam</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa Infrayasa</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Design & Survey</span>
+                        <h4>Met-Oceanography, Bathymetry & DED Jetty Lampung</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Bathymetry & Oceanography Survey Obi Island</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Obi, Maluku Utara | Client: PT Intim Mining Sentosa</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Oceanography Survey and Soil Investigation for EPC Arun LNG Hub Expansion Facility Project</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Arun, Aceh | Client: PT. IKPT</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Topography And Oceanography Survey Sibolga</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Sibolga, Sumatera Utara | Client: PT MOSES ENGINEERING</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Soil Investigation & Topography Survey Blawan Ijen GPP Unit</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ijen | Client: PT. IKPT</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey And Hydrology Study</span>
+                        <h4>Hydrology Study Sungai Mahakam</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Mahakam | Client: PT. Indovisi Sentosa Mandiri</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="year-group reveal" data-year="2023">
+                <div class="year-heading">2023</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Analysis</span>
+                        <h4>Pekerjaan Conceptual Design Review New Ancol Marina Development II</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT Pandega Desain Weharima</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Geophysical & Oceanography Survey for New Pipeline RU Pertamina Pakning</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pakning | Client: PT. LAPI ITB</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Hydrology Survey Bayan</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bayan, Kutai | Client: PT Bayan Resources Tbk</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation</span>
+                        <h4>Soil Investigation for Jetty and Supporting Facility Proyek Mines of Bahadopi Block 2 & 3</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bahadopi, Morowali | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Design</span>
+                        <h4>Reclamation Design in Manado</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Manado | Client: PT. Aramsa Infrayasa</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Seismic Single Channel Survey Krakatau</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Krakatau | Client: British Geological Survey</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Design</span>
+                        <h4>Detailed Engineering Design (DED) Balak</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Balak, Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="year-group reveal" data-year="2022">
+                <div class="year-heading">2022</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Hydrology Survey for Pipeline Routes and Jetty at North Kalimantan</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kalimantan Utara | Client: Medco Energi</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Bathymetry, Topography & Geophysical Survey for Seawall in PJB Muara Karang</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT LAPI / PJB</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Numerical Model</span>
+                        <h4>Environmental Model (Thermal & Particle Tracking Model) PLTU Timor 1</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kupang | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Analysis</span>
+                        <h4>Pekerjaan Studi Kelayakan Perencanaan FSO 3 Lokasi - Kalimantan Tengah</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kalimantan Tengah | Client: PT Pandega Desain Weharima</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Analysis</span>
+                        <h4>Proyek Pekerjaan Penataan F1H2O Balige, Danau Toba</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Toba, Sumatera Utara | Client: Direktorat Pengembangan Kawasan Permukiman Ditjen Cipta Karya</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Engineering Analysis</span>
+                        <h4>Pekerjaan Conceptual Design Review New Ancol Marina Development</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ancol, Jakarta | Client: PT Pandega Desain Weharima</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Hydro-Oceanography, Topography Habitat Mapping & Marine Biota - Perencanaan Dermaga Pulau Balak</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Balak, Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation</span>
+                        <h4>Offshore Soil Investigation for New Jetty Development - FEED DHT RU II Dumai</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Dumai, Riau | Client: PT. IKPT</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Topographic Survey and Soil Investigation Blawan Ijen Geothermal</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ijen | Client: PT. IKPT</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2021 -->
+            <div class="year-group reveal" data-year="2021">
+                <div class="year-heading">2021</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>River Cleanup System in Pantai Indah Kapuk Jakarta</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT Haskoning Indonesia</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation</span>
+                        <h4>Site and Soil Investigation in Cilegon Banten</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Cilegon, Banten | Client: PT. Witteveen Bos Indonesia</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Survey Investigation and Design for Port in Tarakan Area</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tarakan | Client: Balikpapan Chip Lestari</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Survey Investigation and Design for Port in Tarakan - South Area</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tarakan | Client: Balikpapan Chip Lestari</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey & Scuba Diving</span>
+                        <h4>Underwater - Geophysical Survey Pertamina Balikpapan</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Balikpapan | Client: RDMP JO Balikpapan</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey & Scuba Diving</span>
+                        <h4>Benthic Survey & Sediment Sampling</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tuban | Client: PT Haskoning Indonesia</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2020 -->
+            <div class="year-group reveal" data-year="2020">
+                <div class="year-heading">2020</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Revitalisasi Sarana Tambat PT. Pertamina TBBM Badas NTB</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Badas, NTB | Client: PT. PATRA BADAK ALUN SOLUSI</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Revitalisasi Sarana Tambat PT. Pertamina TBBM Camplong</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Camplong, Jawa Timur | Client: PT. PATRA BADAK ALUN SOLUSI</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2019 -->
+            <div class="year-group reveal" data-year="2019">
+                <div class="year-heading">2019</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Hydrographic, Geophysical and Environmental Surveys Muara Karang</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT Haskoning Indonesia</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Bathymetry Survey for The New Futong Jetty</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Riau | Client: PT RAPP</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Design</span>
+                        <h4>Perencanaan/Desain Integrasi Pelindung Pantai</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lombok | Client: PT Lombok Sukses Bersama</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Topography, Hydrographic & Geophysical Survey PLTGU Muara Karang</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT LAPI / PJB</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Soil Investigation, Topography, Hydro-Oceanography Survey</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ambon | Client: PT. Pertamina</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2018 -->
+            <div class="year-group reveal" data-year="2018">
+                <div class="year-heading">2018</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Geophysical Survey - Seismic Single Channel Karimun Island</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Karimun | Client: PT Teramahkota</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Sub Bottom Profiling, Hydrographic Survey for Alur Pelayaran</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kep. Riau | Client: PT. LAPI ITB</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Geophysical Survey in Pertamina Refinery Unit II Dumai</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Dumai | Client: PT. LAPI ITB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2017 -->
+            <div class="year-group reveal" data-year="2017">
+                <div class="year-heading">2017</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Seismic Single Channel</span>
+                        <h4>Survey Seismik Pantul Dangkal Perairan Krakatau, Banten</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: Lembaga Ilmu Pengetahuan Indonesia (LIPI)</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic & Topographic Survey</span>
+                        <h4>Pelaksanaan Survei Topografi, Batimetri, dan Pasang Surut Pelabuhan di Gorontalo</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. Atlantis Bina Persada</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Geotechnical Investigation</span>
+                        <h4>Pekerjaan Soil Investigation Fasilitas PLTU Bantaeng</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bantaeng | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Survei Batimetri, Topography dan Pengamatan Pasang Surut Alur Pelayaran Sungai Jambi</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jambi | Client: PT AECOM</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey</span>
+                        <h4>Pekerjaan Batimetri dan Met-Ocean Survey Fasilitas Jetty Rencana PLTU Bantaeng</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bantaeng | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Soil Investigation & Survey</span>
+                        <h4>Soil Investigation, Sea & Hydrological Survey Proyek Lombok GECC Power Plant (Peaker) 130-150 MW</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lombok | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic Survey Engineering Analysis</span>
+                        <h4>Survei Batimetri dan Studi Kelayakan Pelabuhan</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Balikpapan | Client: PT. Atlantis Bina Persada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2016 -->
+            <div class="year-group reveal" data-year="2016">
+                <div class="year-heading">2016</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic Survey</span>
+                        <h4>Survei Hidrografi Ciujung River</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: PT. Panca Terra Firma</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic, Met-Ocean Survey</span>
+                        <h4>Pekerjaan Survey Batimetri, Topografi dan Pasang Surut Lokasi Jetty PLTG (Peaker) 100 MW</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. PP Persero</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic, Met-Ocean Survey</span>
+                        <h4>Survei Hidrografi Met-Ocean Dermaga Kelolokan</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kalimantan Timur | Client: PT. Hanujaya Hutanindo</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Met-Ocean Survey</span>
+                        <h4>Met-Oceanography Survey PLTU Lontar</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: Black And Veatch</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Hydrographic Survey</span>
+                        <h4>Survei Hidrografi Paket 6 - Papua C</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Papua | Client: Badan Informasi Geospasial (BIG)</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Survey Hydrographic, DED</span>
+                        <h4>Survey Investigasi Dan Desain Pengerukan PLTU Muara Karang</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT. LAPI Ganeshatama</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Seismic Single Channel & Hydrographic</span>
+                        <h4>Survey Seismik Pantul Dangkal IUP Durai</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Riau | Client: PT. Wahana Indah Karya</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Geotechnical Investigation</span>
+                        <h4>Pekerjaan Soil Investigasi di Laut dan Pengujian Laboratorium Sampel Uji Tanah Untuk Jetty PLTGU Gorontalo</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. PP Persero</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2015 -->
+            <div class="year-group reveal" data-year="2015">
+                <div class="year-heading">2015</div>
+                <div class="project-list">
+                    <div class="project-item">
+                        <span class="scope-tag">Ocean Environmental Modelling</span>
+                        <h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Selat Lirung Dan Selat Lampa</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bali | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Ocean Environmental Modelling</span>
+                        <h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Nusa Penida-Bali</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bali | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p>
+                    </div>
+                    <div class="project-item">
+                        <span class="scope-tag">Ocean Environmental Modelling</span>
+                        <h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Selat Sugi - Kep. Riau</h4>
+                        <p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Riau | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- OUR KEY CLIENTS & PARTNERS LOGO GRID (PRESISI 6 KOLOM X 3 BARIS DENGAN HOVER POPUP MELAYANG) -->
+        <div class="client-section reveal">
+            <h2>Our Key Clients & Partners</h2>
+            <p class="sub">Hover over any logo to preview company profiles & partnership areas</p>
+            
+            <div class="client-logo-grid">
+                <!-- BARIS 1 -->
+                <div class="client-logo-card">
+                    <img src="images/logo/pertamina.jpg" alt="PERTAMINA" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. PERTAMINA (PERSERO)</h4>
+                        <span class="badge">Energy & Offshore</span>
+                        <p>Subsea pipeline surveys, marine geophysics, and jetty revitalization across Pertamina refinery units.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/pp.jpg" alt="PT PP Persero" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. PP (PERSERO) TBK</h4>
+                        <span class="badge">Infrastructure & Construction</span>
+                        <p>Geotechnical soil investigation, marine surveying, and ocean hydrodynamic modeling for major port infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/waskita.png" alt="WASKITA" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. WASKITA KARYA</h4>
+                        <span class="badge">Civil & Marine Construction</span>
+                        <p>Topographic, bathymetric mapping, and coastal protection structural advisory for national infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/brin.png" alt="BRIN" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>BRIN</h4>
+                        <span class="badge">Research & Government</span>
+                        <p>Collaborative marine technology R&D, ocean current modeling, and scientific survey data collection.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/big.png" alt="BIG" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>BADAN INFORMASI GEOSPASIAL</h4>
+                        <span class="badge">Geospatial Authority</span>
+                        <p>National hydrographic survey packages and bathymetric mapping for Indonesian marine geospatial database.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/medco.png" alt="MEDCO ENERGI" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>MEDCO ENERGI</h4>
+                        <span class="badge">Oil & Gas Exploration</span>
+                        <p>Hydrology, pipeline route survey, and offshore jetty investigation for Medco Energi field operations.</p>
+                    </div>
+                </div>
+
+                <!-- BARIS 2 -->
+                <div class="client-logo-card">
+                    <img src="images/logo/British_Geological_Survey.png" alt="British Geological Survey" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>BRITISH GEOLOGICAL SURVEY</h4>
+                        <span class="badge">International Research</span>
+                        <p>High-resolution seismic single-channel profiling and geological marine research in Krakatau waters.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/haskoning.png" alt="Royal Haskoning DHV" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>ROYAL HASKONING DHV</h4>
+                        <span class="badge">Global Engineering</span>
+                        <p>Integrated hydrographic, benthic, geophysical, and environmental survey consulting for marine projects.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/ikpt.jpg" alt="PT IKPT" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. IKPT</h4>
+                        <span class="badge">EPC Contractor</span>
+                        <p>Soil investigation, CPT testing, and oceanography surveys for LNG facilities and geothermal plants.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/lapi.png" alt="PT LAPI ITB" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. LAPI ITB</h4>
+                        <span class="badge">Academic Consultancy</span>
+                        <p>Sub-bottom profiling, pipeline survey, and thermal dispersion modeling in collaboration with ITB experts.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/bayan.jpg" alt="Bayan Resources" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>BAYAN RESOURCES TBK</h4>
+                        <span class="badge">Mining & Logistics</span>
+                        <p>Hydrology, river bathymetry, and coal barge jetty survey along major Kutai transportation rivers.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/pupuk.jpg" alt="Pupuk Kaltim" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. PUPUK KALTIM</h4>
+                        <span class="badge">Petrochemical</span>
+                        <p>Marine soil investigation and CPT test for new Ammonia Urea Plant jetty facility in Fakfak, Papua.</p>
+                    </div>
+                </div>
+
+                <!-- BARIS 3 -->
+                <div class="client-logo-card">
+                    <img src="images/logo/aecom.png" alt="AECOM" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>AECOM INDONESIA</h4>
+                        <span class="badge">Infrastructure Consultancy</span>
+                        <p>Bathymetric, topographic, and tidal survey services for river transport channel development in Jambi.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/indika.png" alt="Indika Logistics" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>INDIKA LOGISTICS</h4>
+                        <span class="badge">Energy Logistics</span>
+                        <p>Port basin bathymetry and navigation safety investigation for bulk logistics and shipping routes.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/PJB.png" alt="PT PJB" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. PJB (PLN NUSANTARA POWER)</h4>
+                        <span class="badge">Power Generation</span>
+                        <p>Bathymetric and marine geophysical surveys for seawall stability & cooling water intake channels.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/pbas.png" alt="PT PBAS" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>PT. PATRA BADAK ALUN SOLUSI</h4>
+                        <span class="badge">Energy Engineering</span>
+                        <p>Offshore soil investigation and marine survey for mooring facility revitalization across Pertamina TBBM.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/sampoerna.png" alt="Sampoerna Kayoe" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>SAMPOERNA KAYOE</h4>
+                        <span class="badge">Industrial Forestry</span>
+                        <p>River flow measurement, bathymetry, and timber transport jetty loading engineering.</p>
+                    </div>
+                </div>
+
+                <div class="client-logo-card">
+                    <img src="images/logo/wb.png" alt="Witteveen+Bos" class="client-logo-img">
+                    <div class="client-hover-popup">
+                        <h4>WITTEVEEN+BOS</h4>
+                        <span class="badge">Coastal Engineering</span>
+                        <p>Geotechnical site investigation and soil sampling for port and industrial zone engineering in Banten.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER - DESAIN 3 KOLOM MODERN ELEGAN -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>PT. OC <span>ENVIRO</span></h3>
+                <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Projects & Clients</a></li>
+                    <li><a href="equipments.html">Equipments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-card">
+                    <ul class="contact-info-list">
+                        <li><span class="contact-icon">📍</span><span>Komplek Bukit Cimindi Raya, Blok J No 12, Kota Cimahi, Jawa Barat 40513</span></li>
+                        <li><span class="contact-icon">📞</span><span>+62 22 8600 2246</span></li>
+                        <li><span class="contact-icon">✉️</span><span>info@ocenviro.com</span></li>
+                        <li><span class="contact-icon">🌐</span><span>ocenviro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 - OC ENVIRO.Inc - Bandung. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterYear(year, evt) {
+            if (evt) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                evt.currentTarget.classList.add('active');
+            }
+
+            document.querySelectorAll('.year-group').forEach(group => {
+                if (year === 'all' || group.getAttribute('data-year') === year) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+
+        // DEFAULT SAAT HALAMAN DIBUKA: LANGSUNG KE TAHUN 2024
+        window.addEventListener('DOMContentLoaded', () => {
+            filterYear('2024');
+        });
+
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    </script>
+
+    <script>
+        // MOBILE HAMBURGER MENU TOGGLE (no dark backdrop, page stays bright & clickable)
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburgerBtn').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+        }
+        // Auto-close the menu once a menu link is tapped, so navigation feels natural
+        document.querySelectorAll('#navLinks a').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>
