@@ -271,14 +271,14 @@
             <!-- Kolom 1 -->
             <div class="slide-col">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img active">
-                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img">
+                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img">
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
             </div>
             <!-- Kolom 2 -->
             <div class="slide-col">
-                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img active">
+                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img active">
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
@@ -290,7 +290,7 @@
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
-                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img">
+                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img">
             </div>
         </div>
 
@@ -433,24 +433,26 @@
             }, 2600);
         });
 
-        // HERO SLIDESHOW MULTI-KOLOM BEROTASI ADIL & DINAMIS
-        let currentSlideIndex = 0;
-        const col1Slides = document.querySelectorAll('.slide-col:nth-child(1) img.slide-img');
-        const col2Slides = document.querySelectorAll('.slide-col:nth-child(2) img.slide-img');
-        const col3Slides = document.querySelectorAll('.slide-col:nth-child(3) img.slide-img');
-
-        function nextHeroSlide() {
-            col1Slides[currentSlideIndex].classList.remove('active');
-            col2Slides[currentSlideIndex].classList.remove('active');
-            col3Slides[currentSlideIndex].classList.remove('active');
-
-            currentSlideIndex = (currentSlideIndex + 1) % col1Slides.length;
-
-            col1Slides[currentSlideIndex].classList.add('active');
-            col2Slides[currentSlideIndex].classList.add('active');
-            col3Slides[currentSlideIndex].classList.add('active');
+        // HERO SLIDESHOW INDEPENDEN TIAP KOLOM
+        function initColumnSlider(colSelector, intervalTime, delayOffset) {
+            const images = document.querySelectorAll(colSelector + ' img.slide-img');
+            if (images.length === 0) return;
+            let index = 0;
+            
+            setTimeout(() => {
+                setInterval(() => {
+                    images[index].classList.remove('active');
+                    index = (index + 1) % images.length;
+                    images[index].classList.add('active');
+                }, intervalTime);
+            }, delayOffset);
         }
-        setInterval(nextHeroSlide, 4500);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initColumnSlider('.slide-col:nth-child(1)', 4500, 0);
+            initColumnSlider('.slide-col:nth-child(2)', 4800, 1500);
+            initColumnSlider('.slide-col:nth-child(3)', 5200, 3000);
+        });
 
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
