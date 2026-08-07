@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us & Our Team - PT. OC ENVIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        :root { 
+            --primary-orange: #f27420; 
+            --orange-hover: #d95d08;
+            --dark-navy: #0f2137; 
+            --deep-navy: #081426;
+            --light-bg: #f8fafc; 
+            --text-dark: #1e293b; 
+            --gray-text: #64748b; 
+            --border-color: #e2e8f0;
+            --footer-dark: #0a1626;
+        }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-bottom: 1px solid var(--border-color); }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .logo-img { height: 38px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+        .nav-links a { color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-orange); }
+        .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; display: inline-block; }
+        .cta-btn:hover { background-color: var(--orange-hover); }
+
+        .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 5rem 1rem 4.5rem; position: relative; overflow: hidden; }
+        .animated-title { font-size: 2.6rem; font-weight: 800; opacity: 0; transform: translateY(25px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; display: inline-block; }
+        .animated-title span { color: var(--primary-orange); }
+        .title-accent-line { width: 0; height: 4px; background: var(--primary-orange); margin: 14px auto 0; border-radius: 2px; animation: lineExpand 0.8s ease forwards 0.8s; }
+        .animated-subtitle { font-size: 1.1rem; color: #94a3b8; margin-top: 1.2rem; opacity: 0; transform: translateY(15px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s; }
+
+        @keyframes corporateFadeIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes lineExpand { to { width: 90px; } }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2rem; }
+
+        .section-tag { display: inline-block; background: rgba(242, 116, 32, 0.1); color: var(--primary-orange); font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.9rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
+        .section-title { font-size: 2rem; color: var(--dark-navy); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.3; }
+
+        .intro-grid {
+            display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: center;
+            background: #ffffff; padding: 3.5rem; border-radius: 12px; border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 4rem;
+        }
+
+        .intro-stats-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+        .stat-card { background: var(--light-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); border-top: 3px solid var(--primary-orange); text-align: center; }
+        .stat-card .num { font-size: 2.2rem; font-weight: 800; color: var(--dark-navy); line-height: 1; margin-bottom: 0.4rem; }
+        .stat-card .label { font-size: 0.82rem; color: var(--gray-text); font-weight: 600; text-transform: uppercase; }
+
+        .intro-text-content p { color: var(--gray-text); font-size: 1.02rem; line-height: 1.8; margin-bottom: 1rem; }
+        .intro-text-content p strong { color: var(--dark-navy); }
+
+        .vision-card {
+            background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #ffffff;
+            padding: 3.5rem; border-radius: 12px; position: relative; overflow: hidden;
+            border-left: 6px solid var(--primary-orange); box-shadow: 0 12px 35px rgba(15, 33, 55, 0.15); margin-bottom: 4rem;
+        }
+
+        .vision-card h3 { color: var(--primary-orange); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 1rem; }
+        .vision-card p { font-size: 1.25rem; font-weight: 500; line-height: 1.7; color: #f1f5f9; max-width: 900px; }
+
+        .mission-section-header { text-align: center; margin-bottom: 2.8rem; }
+        .mission-list-vertical { display: flex; flex-direction: column; gap: 1.2rem; width: 100%; margin-bottom: 5rem; }
+
+        .mission-card-horizontal {
+            background: #ffffff; padding: 1.6rem 2.2rem; border-radius: 10px; border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; gap: 2rem; position: relative; overflow: hidden; width: 100%;
+        }
+
+        .mission-card-horizontal::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--primary-orange); opacity: 0.8; transition: width 0.3s ease; }
+        .mission-card-horizontal:hover { transform: translateX(8px); box-shadow: 0 10px 25px rgba(242, 116, 32, 0.12); border-color: rgba(242, 116, 32, 0.4); }
+        .mission-card-horizontal:hover::before { width: 8px; }
+
+        .mission-num-badge {
+            width: 50px; height: 50px; background: rgba(242, 116, 32, 0.1); color: var(--primary-orange);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800;
+            font-size: 1.25rem; flex-shrink: 0; transition: all 0.3s ease;
+        }
+
+        .mission-card-horizontal:hover .mission-num-badge { background: var(--primary-orange); color: #ffffff; transform: scale(1.05); }
+        .mission-info { display: flex; flex-direction: column; gap: 0.2rem; flex-grow: 1; }
+        .mission-info h4 { color: var(--dark-navy); font-size: 1.1rem; font-weight: 700; }
+        .mission-info p { color: var(--gray-text); font-size: 0.98rem; line-height: 1.6; }
+
+        .team-section-header { text-align: center; margin-bottom: 3rem; }
+        .team-row-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; margin-bottom: 2rem; }
+        .team-row-bottom { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; max-width: 820px; margin: 0 auto; }
+
+        .team-card {
+            background: #fff; padding: 2.2rem 1.5rem 1.8rem; border-radius: 8px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid var(--border-color); border-top: 4px solid var(--primary-orange);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .team-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-top-color: var(--dark-navy); }
+
+        .img-box { width: 125px; height: 145px; margin: 0 auto 1.2rem; border-radius: 6px; overflow: hidden; border: 2px solid var(--primary-orange); transition: border-color 0.3s; }
+        .team-card:hover .img-box { border-color: var(--dark-navy); }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .team-card:hover .profile-img { transform: scale(1.08); }
+
+        .team-card h3 { color: var(--dark-navy); font-size: 1.05rem; font-weight: 700; min-height: 2.6em; display: flex; align-items: center; justify-content: center; margin-bottom: 2px; }
+        .team-card .role { color: var(--primary-orange); font-weight: 700; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .team-card ul { text-align: left; font-size: 0.82rem; color: var(--gray-text); margin-left: 1.2rem; line-height: 1.5; margin-bottom: 1rem; }
+        .click-hint { font-size: 0.72rem; color: var(--primary-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; border-top: 1px solid var(--border-color); padding-top: 8px; }
+        .team-card:hover .click-hint { color: var(--dark-navy); }
+
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 33, 55, 0.75); align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+        .modal-content { background-color: #fff; padding: 2.5rem; border-radius: 8px; width: 90%; max-width: 520px; position: relative; border-top: 5px solid var(--primary-orange); box-shadow: 0 15px 40px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease; text-align: left; }
+        .close-btn { position: absolute; top: 12px; right: 18px; font-size: 1.5rem; cursor: pointer; color: var(--gray-text); }
+        .close-btn:hover { color: var(--dark-navy); }
+
+        .modal-section-title { font-size: 0.82rem; font-weight: 700; color: var(--primary-orange); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1rem; margin-bottom: 0.3rem; }
+        .modal-edu-box { background: var(--light-bg); padding: 0.9rem 1.1rem; border-radius: 6px; border: 1px solid var(--border-color); font-size: 0.9rem; color: var(--dark-navy); line-height: 1.5; margin-bottom: 1.5rem; }
+
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* FOOTER COMPONENT */
+        footer { 
+            background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
+            color: #94a3b8; 
+            border-top: 3px solid var(--primary-orange); 
+            font-size: 0.9rem; 
+            padding-top: 4.5rem; 
+            margin-top: 5rem;
+        }
+        
+        .footer-container { 
+            max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 4rem; 
+            display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 3.5rem; align-items: start;
+        }
+
+        .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .footer-brand h3 span { color: #ffffff; }
+        .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
+
+        .footer-col h4 { 
+            font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
+            margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
+        }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
+
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.92rem; display: inline-block; }
+        .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(5px); }
+
+        .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.5rem; }
+        .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+        .contact-info-list li { color: #cbd5e1; font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
+        
+        .contact-icon {
+            width: 30px; height: 30px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
+            border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
+        }
+
+        .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 1.4rem 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
+
+        .reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
+        @media (max-width: 850px) { .team-row-top, .team-row-bottom { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .intro-grid { grid-template-columns: 1fr; padding: 2.2rem; gap: 2rem; }
+            .mission-card-horizontal { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+        }
+    
+        .hamburger {
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 30px; height: 30px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1200;
+        }
+        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-only-item { display: none; }
+
+        @media (max-width: 860px) {
+            .hamburger { display: flex; }
+            .navbar > .cta-btn { display: none; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 78%; max-width: 300px; height: 100vh;
+                background: #ffffff; flex-direction: column; align-items: flex-start; gap: 0;
+                padding: 5.5rem 1.8rem 2rem; box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 1100; overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; padding: 0.85rem 0; font-size: 0.92rem; border-bottom: 1px solid var(--border-color); }
+            .mobile-only-item { display: block; margin-top: 0.8rem; }
+            .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
+        }
+
+        @media (max-width: 768px) { html { font-size: 15px; } }
+        @media (max-width: 480px) { html { font-size: 13.5px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="PT. OC ENVIRO Logo" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html">Projects & Clients</a></li>
+                <li><a href="equipments.html">Equipments</a></li>
+                <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 class="animated-title">About Us & <span>Our Team</span></h1>
+        <div class="title-accent-line"></div>
+        <p class="animated-subtitle">Engineering Excellence & Professional Leadership in Ocean Engineering</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="intro-grid reveal">
+            <div class="intro-stats-box">
+                <div class="stat-card">
+                    <div class="num">2010</div>
+                    <div class="label">Established Year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">15+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">100+</div>
+                    <div class="label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">100%</div>
+                    <div class="label">Client Commitment</div>
+                </div>
+            </div>
+
+            <div class="intro-text-content">
+                <span class="section-tag">Who We Are</span>
+                <h2 class="section-title">Innovating Ocean & Coastal Engineering Solutions</h2>
+                <p>Established in 2010 in Bandung, Indonesia, <strong>PT. OC ENVIRO</strong> is a leading engineering consulting company specializing in ocean surveys, site investigations, ocean engineering, and coastal infrastructure design.</p>
+                <p>Driven by a commitment to technical excellence and sustainable development, OC ENVIRO delivers innovative, reliable, and integrated engineering solutions to address the complex technical and environmental challenges faced by clients across Indonesia's maritime and coastal sectors.</p>
+                <p>By combining advanced survey technologies, engineering expertise, and industry best practices, we support our clients throughout every stage of a project—from planning and investigation to engineering design, implementation support, and technical advisory services.</p>
+            </div>
+        </div>
+
+        <div class="vision-card reveal">
+            <h3>Our Vision</h3>
+            <p>"To be a leading Indonesian ocean engineering consultant emphasizing innovation and professionalism to create integrated and sustainable engineering solutions for present and future stakeholders."</p>
+        </div>
+
+        <div class="reveal">
+            <div class="mission-section-header">
+                <span class="section-tag">Our Commitment</span>
+                <h2 class="section-title">Our Strategic Mission</h2>
+            </div>
+
+            <div class="mission-list-vertical">
+                <div class="mission-card-horizontal">
+                    <div class="mission-num-badge">01</div>
+                    <div class="mission-info">
+                        <h4>Excellence in Service</h4>
+                        <p>To provide excellent, high-quality services in the fields of ocean survey, site investigation, and ocean engineering design.</p>
+                    </div>
+                </div>
+
+                <div class="mission-card-horizontal">
+                    <div class="mission-num-badge">02</div>
+                    <div class="mission-info">
+                        <h4>Research & Development</h4>
+                        <p>To conduct continuous research and development in ocean technology as the core driver of OC ENVIRO's sustainability.</p>
+                    </div>
+                </div>
+
+                <div class="mission-card-horizontal">
+                    <div class="mission-num-badge">03</div>
+                    <div class="mission-info">
+                        <h4>Value Creation</h4>
+                        <p>To create additional value and long-term benefits for all stakeholders, partners, and corporate clients.</p>
+                    </div>
+                </div>
+
+                <div class="mission-card-horizontal">
+                    <div class="mission-num-badge">04</div>
+                    <div class="mission-info">
+                        <h4>Professional Growth</h4>
+                        <p>To build OC ENVIRO as an empowering platform for professional creation, innovation, and career achievement.</p>
+                    </div>
+                </div>
+
+                <div class="mission-card-horizontal">
+                    <div class="mission-num-badge">05</div>
+                    <div class="mission-info">
+                        <h4>Environmental Care</h4>
+                        <p>To remain environmentally responsible and actively safeguard coastal and marine ecosystems across all operational activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal" id="team">
+            <div class="team-section-header">
+                <span class="section-tag">Our Experts</span>
+                <h2 class="section-title">Our Professional Management & Experts</h2>
+            </div>
+
+            <div class="team-row-top">
+                <div class="team-card reveal" onclick="showDetail('RAMDAN YASSIN S.T, M.T.', 'CHIEF OPERATION OFFICER', 'OCEAN ENGINEERING', 'Master Degree Department of Ocean Engineering, Bandung Institute of Technology, Bandung, 2014.')">
+                    <div>
+                        <div class="img-box"><img src="images/Team/Ramdan.png" alt="Ramdan Yassin" class="profile-img"></div>
+                        <h3>RAMDAN YASSIN S.T, M.T.</h3>
+                        <div class="role">CHIEF OPERATION OFFICER</div>
+                        <ul>
+                            <li>Onshore Structure</li>
+                            <li>Port Design</li>
+                            <li>Ocean Environmental Modeling</li>
+                            <li>Ocean Survey and Field Monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="click-hint">Click For Profile Details</div>
+                </div>
+
+                <div class="team-card reveal" onclick="showDetail('AHMAD SAFII MAARIF S.T, M.T.', 'CHIEF TECHNICAL OFFICER', 'OCEAN ENGINEERING', 'Master Degree Department of Ocean Engineering, Bandung Institute of Technology, Bandung, 2008.')">
+                    <div>
+                        <div class="img-box"><img src="images/Team/Ahmad.png" alt="Ahmad Safii M" class="profile-img"></div>
+                        <h3>AHMAD SAFII M S.T, M.T.</h3>
+                        <div class="role">CHIEF TECHNICAL OFFICER</div>
+                        <ul>
+                            <li>Offshore Structure</li>
+                            <li>Onshore Structure</li>
+                            <li>Ocean Environmental Modeling</li>
+                            <li>Underwater Acoustic</li>
+                            <li>Ocean Survey and Field Monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="click-hint">Click For Profile Details</div>
+                </div>
+
+                <div class="team-card reveal" onclick="showDetail('EDWIN SUBHAAN FATURAHMAN S.T.', 'CHIEF FINANCIAL OFFICER', 'CIVIL ENGINEERING', 'Bachelor Degree Department of Civil Engineering, Parahyangan University, Bandung, 2007.')">
+                    <div>
+                        <div class="img-box"><img src="images/Team/Edwin.png" alt="Edwin Subhaan F" class="profile-img"></div>
+                        <h3>EDWIN SUBHAAN F</h3>
+                        <div class="role">CHIEF FINANCIAL OFFICER</div>
+                        <ul>
+                            <li>Structural Engineering</li>
+                            <li>Construction Management</li>
+                            <li>Quality, Health, Safety, Environment (QHSE) Management</li>
+                            <li>Ocean Survey and Field Monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="click-hint">Click For Profile Details</div>
+                </div>
+            </div>
+
+            <div class="team-row-bottom">
+                <div class="team-card reveal" onclick="showDetail('DANNY FRIYADI S.T, M.T.', 'PROJECT MANAGER', 'OCEAN ENGINEERING', 'Master Degree Department of Ocean Engineering, Bandung Institute of Technology, Bandung, 2011.')">
+                    <div>
+                        <div class="img-box"><img src="images/Team/Danny.png" alt="Danny Friyadi" class="profile-img"></div>
+                        <h3>DANNY FRIYADI S.T, M.T.</h3>
+                        <div class="role">PROJECT MANAGER</div>
+                        <ul>
+                            <li>Underwater Acoustic</li>
+                            <li>Ocean Environmental Modeling</li>
+                            <li>Offshore Structure</li>
+                            <li>Onshore Structure</li>
+                            <li>Port Design</li>
+                        </ul>
+                    </div>
+                    <div class="click-hint">Click For Profile Details</div>
+                </div>
+
+                <div class="team-card reveal" onclick="showDetail('HAQQU RAMDHANI S.IK, M.Si.', 'PROJECT SUPPORT', 'MARINE SCIENCE AND TECHNOLOGY', 'Master Degree Department of Fisheries and Marine Science, Bogor Agricultural University, Bogor, 2014.')">
+                    <div>
+                        <div class="img-box"><img src="images/Team/Haqqu.png" alt="Haqqu Ramdhani" class="profile-img"></div>
+                        <h3>HAQQU RAMDHANI S.IK, M.Si.</h3>
+                        <div class="role">PROJECT SUPPORT</div>
+                        <ul>
+                            <li>Underwater Acoustic</li>
+                            <li>GIS (Geographic Information System) Spatial Data</li>
+                            <li>Ocean Resources Management</li>
+                        </ul>
+                    </div>
+                    <div class="click-hint">Click For Profile Details</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeDetail()">&times;</span>
+            <h3 id="modalName" style="color: var(--dark-navy); font-size: 1.25rem; font-weight: 700; margin-bottom: 2px;">-</h3>
+            <p id="modalRole" style="color: var(--primary-orange); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1rem;">-</p>
+            
+            <div class="modal-section-title">Field of Expertise</div>
+            <p id="modalField" style="color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">-</p>
+
+            <div class="modal-section-title">Education Background</div>
+            <div class="modal-edu-box" id="modalEdu">-</div>
+
+            <button class="cta-btn" onclick="closeDetail()" style="width: 100%;">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>PT. OC <span style="color: #ffffff;">ENVIRO</span></h3>
+                <p>Innovative and integrated solutions for ocean survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About & Our Team</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Projects & Clients</a></li>
+                    <li><a href="equipments.html">Equipments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-card">
+                    <ul class="contact-info-list">
+                        <li><span class="contact-icon">📍</span><span>Komplek Bukit Cimindi Raya, Blok J No 12, Kota Cimahi, Jawa Barat 40513</span></li>
+                        <li><span class="contact-icon">📞</span><span>+62 22 8600 2246</span></li>
+                        <li><span class="contact-icon">✉️</span><span>info@ocenviro.com</span></li>
+                        <li><span class="contact-icon">🌐</span><span>ocenviro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 - OC ENVIRO.Inc - Bandung. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showDetail(name, role, field, edu) {
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalRole').innerText = role;
+            document.getElementById('modalField').innerText = field;
+            document.getElementById('modalEdu').innerText = edu;
+            document.getElementById('teamModal').style.display = 'flex';
+        }
+        function closeDetail() { document.getElementById('teamModal').style.display = 'none'; }
+
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburgerBtn').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+        }
+        document.querySelectorAll('#navLinks a').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>

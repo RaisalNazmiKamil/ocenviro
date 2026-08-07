@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipments - PT. OC ENVIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        :root { 
+            --primary-orange: #f27420; 
+            --orange-hover: #d95d08;
+            --dark-navy: #0f2137; 
+            --deep-navy: #081426;
+            --light-bg: #f8fafc; 
+            --text-dark: #1e293b; 
+            --gray-text: #64748b; 
+            --border-color: #e2e8f0;
+            --footer-dark: #0a1626;
+        }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-bottom: 1px solid var(--border-color); }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .logo-img { height: 38px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+        .nav-links a { color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-orange); }
+        .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .cta-btn:hover { background-color: var(--orange-hover); }
+
+        .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 4.5rem 1rem 4rem; }
+        .animated-title { font-size: 2.5rem; font-weight: 700; opacity: 0; transform: translateY(25px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; display: inline-block; }
+        .animated-title span { color: var(--primary-orange); }
+        .title-accent-line { width: 0; height: 3px; background: var(--primary-orange); margin: 12px auto 0; border-radius: 2px; animation: lineExpand 0.8s ease forwards 0.8s; }
+        .animated-subtitle { font-size: 1.05rem; color: #94a3b8; margin-top: 1.2rem; opacity: 0; transform: translateY(15px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s; }
+
+        @keyframes corporateFadeIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes lineExpand { to { width: 80px; } }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+
+        .intro-box {
+            background: #ffffff; padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-orange); box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 3.5rem;
+        }
+        .intro-box h2 { color: var(--dark-navy); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 700; }
+        .intro-box p { color: var(--gray-text); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; }
+
+        .capabilities-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; margin-top: 1.5rem; }
+        .capabilities-list li { display: flex; align-items: center; gap: 0.6rem; color: var(--dark-navy); font-weight: 600; font-size: 0.95rem; }
+        .capabilities-list li span { color: var(--primary-orange); font-weight: bold; }
+
+        .section-heading { text-align: center; color: var(--dark-navy); font-size: 1.8rem; margin-bottom: 2.5rem; font-weight: 700; }
+        
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        
+        .equipment-card {
+            background: #ffffff; border-radius: 8px; border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-orange); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column;
+        }
+        .equipment-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(242, 116, 32, 0.12); border-top-color: var(--dark-navy); }
+
+        .equipment-img-box { height: 220px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 1.2rem; border-bottom: 1px solid var(--border-color); overflow: hidden; }
+        .equipment-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.4s ease; }
+        .equipment-card:hover .equipment-img { transform: scale(1.05); }
+
+        .equipment-info { padding: 1.8rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .equipment-info h3 { color: var(--dark-navy); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+        .equipment-category { font-size: 0.8rem; font-weight: 700; color: var(--primary-orange); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem; }
+        .equipment-desc { color: var(--gray-text); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.2rem; }
+
+        .spec-list { background: var(--light-bg); padding: 1rem; border-radius: 6px; border: 1px solid var(--border-color); list-style: none; font-size: 0.85rem; }
+        .spec-list li { margin-bottom: 0.4rem; color: var(--text-dark); }
+        .spec-list li:last-child { margin-bottom: 0; }
+        .spec-list strong { color: var(--dark-navy); }
+
+        /* FOOTER COMPONENT */
+        footer { 
+            background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
+            color: #94a3b8; 
+            border-top: 3px solid var(--primary-orange); 
+            font-size: 0.9rem; 
+            padding-top: 4.5rem; 
+            margin-top: 5rem;
+        }
+        
+        .footer-container { 
+            max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 4rem; 
+            display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 3.5rem; align-items: start;
+        }
+
+        .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .footer-brand h3 span { color: #ffffff; }
+        .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
+
+        .footer-col h4 { 
+            font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
+            margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
+        }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
+
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.92rem; display: inline-block; }
+        .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(5px); }
+
+        .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.5rem; }
+        .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+        .contact-info-list li { color: #cbd5e1; font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
+        
+        .contact-icon {
+            width: 30px; height: 30px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
+            border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
+        }
+
+        .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 1.4rem 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
+
+        .reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
+    
+        .hamburger {
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 30px; height: 30px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1200;
+        }
+        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-only-item { display: none; }
+
+        @media (max-width: 860px) {
+            .hamburger { display: flex; }
+            .navbar > .cta-btn { display: none; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 78%; max-width: 300px; height: 100vh;
+                background: #ffffff; flex-direction: column; align-items: flex-start; gap: 0;
+                padding: 5.5rem 1.8rem 2rem; box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 1100; overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; padding: 0.85rem 0; font-size: 0.92rem; border-bottom: 1px solid var(--border-color); }
+            .mobile-only-item { display: block; margin-top: 0.8rem; }
+            .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
+        }
+
+        @media (max-width: 768px) { html { font-size: 15px; } }
+        @media (max-width: 480px) { html { font-size: 13.5px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="PT. OC ENVIRO Logo" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html">Projects & Clients</a></li>
+                <li><a href="equipments.html" class="active">Equipments</a></li>
+                <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 class="animated-title">Primary <span>Instrument</span></h1>
+        <div class="title-accent-line"></div>
+        <p class="animated-subtitle">High-Precision Hydrographic, Geophysical, Geotechnical, and Oceanographic Survey Instruments</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-box reveal">
+            <h2>Survey Equipment & Technology Standards</h2>
+            <p>
+                PT. OC ENVIRO is committed to selecting the right technology and instrumentation for every specific marine task. We offer a comprehensive suite of advanced marine survey equipment designed to obtain optimum, high-accuracy data at maximum operational efficiency.
+            </p>
+            <ul class="capabilities-list">
+                <li><span>✓</span> Hydrographic & Bathymetric Survey</li>
+                <li><span>✓</span> Global Positioning & Navigation Systems</li>
+                <li><span>✓</span> Geotechnical & Soil Investigation</li>
+                <li><span>✓</span> Seismic & Sub-surface Investigation</li>
+                <li><span>✓</span> Metocean & Water Sampling Measurement</li>
+            </ul>
+        </div>
+
+        <h2 class="section-heading reveal">Primary Instrument</h2>
+
+        <div class="equipment-grid">
+            
+            <!-- 1. SEGMEN 1: HYDROGRAPHIC SURVEY (R2SONIC 2024 MULTIBEAM) -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="https://www.echo81.com/wp-content/uploads/2023/07/ECHO81-Sales-Products-R2Sonic-2024-AUV-Wideband-Multibeam-Echosounder.jpg" alt="Multibeam Echosounder System" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Hydrographic Survey</div>
+                        <h3>Singlebeam & Multibeam Echosounder System</h3>
+                        <p class="equipment-desc">Advanced high-resolution bathymetric surveying instrument combining singlebeam and multibeam sonar technology for comprehensive seafloor mapping and high-density data acquisition.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> High-Density Seabed Bathymetric Mapping</li>
+                        <li><strong>Feature:</strong> Multi-frequency & wide swath coverage</li>
+                        <li><strong>Application:</strong> Port dredging, navigation & offshore construction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. SEGMEN 2: POSITIONING & NAVIGATION -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="images/Equipment/equipment-2.jpg" alt="Dual-Frequency DGPS System" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Positioning & Navigation</div>
+                        <h3>Dual-Frequency DGPS & GNSS Receiver</h3>
+                        <p class="equipment-desc">High-precision GNSS positioning system providing sub-meter to centimeter accuracy for marine vessel tracking and hydrographic survey lines.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> Vessel Positioning & Navigation</li>
+                        <li><strong>Accuracy:</strong> RTK / DGPS High Precision</li>
+                        <li><strong>Feature:</strong> Multi-constellation satellite tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. SEGMEN 3: SOIL INVESTIGATION -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="images/Services/Soil Investigation.jpeg" alt="Geotechnical Drilling Equipment" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Geotechnical Investigation</div>
+                        <h3>Offshore Geotechnical Drilling & CPT Rig</h3>
+                        <p class="equipment-desc">Heavy-duty marine drilling and Cone Penetration Testing (CPT) equipment utilized for offshore soil sampling, core drilling, and evaluating seabed sub-surface geotechnical parameters.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> Sub-surface Soil Sampling & Testing</li>
+                        <li><strong>Feature:</strong> Deep-water drilling & undisturbed coring</li>
+                        <li><strong>Application:</strong> Offshore platform foundation & jetty design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. SEGMEN 4: METOCEAN & OCEANOGRAPHY -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="https://www.uniquegroup.com/wp-content/uploads/2022/08/uniquegroup_teledynerdiworkhoursesentineladcp_1481626965Teledyne_RDI_Sentinel.jpg" alt="Acoustic Doppler Current Profiler (ADCP)" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Metocean & Oceanography</div>
+                        <h3>Acoustic Doppler Current Profiler (ADCP)</h3>
+                        <p class="equipment-desc">Advanced acoustic current meter designed to measure water current velocity and direction across multiple depth columns in ocean waters.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> Current Speed & Direction Profiling</li>
+                        <li><strong>Deployment:</strong> Vessel-mounted or Seabed frame</li>
+                        <li><strong>Application:</strong> Metocean studies & port engineering</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. SEGMEN 5: SEISMIC SURVEYS -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="https://www.appliedacoustics.com/wp-content/uploads/2021/02/sparker-and-Beacons-scaled.webp" alt="Sub-Bottom Profiler (SBP) System" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Seismic Surveys</div>
+                        <h3>Sub-Bottom Profiler (SBP) System</h3>
+                        <p class="equipment-desc">High-resolution seismic reflection system used to identify sub-seabed geological layers, buried pipeline paths, and foundation strata.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> Sub-seabed Stratigraphy Mapping</li>
+                        <li><strong>Penetration:</strong> High resolution sub-bottom profiling</li>
+                        <li><strong>Application:</strong> Offshore pipeline & foundation site survey</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 6. SEGMEN 6: WATER SAMPLING -->
+            <div class="equipment-card reveal">
+                <div class="equipment-img-box">
+                    <img src="https://osil.com/content/uploads/2018/12/Giant-SnowCatcher-ChallengerWave_Feb2014_Final1-800x660.jpg" alt="Water Sampling Equipment" class="equipment-img">
+                </div>
+                <div class="equipment-info">
+                    <div>
+                        <div class="equipment-category">Water Sampling</div>
+                        <h3>Marine Water Sampling Equipment</h3>
+                        <p class="equipment-desc">Professional oceanographic water samplers designed to retrieve clean water samples at discrete depths for marine environmental baseline studies and water quality laboratory testing.</p>
+                    </div>
+                    <ul class="spec-list">
+                        <li><strong>Primary Use:</strong> Discrete Depth Water Sample Collection</li>
+                        <li><strong>Feature:</strong> Contamination-free closing mechanism</li>
+                        <li><strong>Application:</strong> Environmental Baseline Studies & Water Quality Analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>PT. OC <span style="color: #ffffff;">ENVIRO</span></h3>
+                <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Projects & Clients</a></li>
+                    <li><a href="equipments.html">Equipments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-card">
+                    <ul class="contact-info-list">
+                        <li><span class="contact-icon">📍</span><span>Komplek Bukit Cimindi Raya, Blok J No 12, Kota Cimahi, Jawa Barat 40513</span></li>
+                        <li><span class="contact-icon">📞</span><span>+62 22 8600 2246</span></li>
+                        <li><span class="contact-icon">✉️</span><span>info@ocenviro.com</span></li>
+                        <li><span class="contact-icon">🌐</span><span>ocenviro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 - OC ENVIRO.Inc - Bandung. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburgerBtn').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+        }
+        document.querySelectorAll('#navLinks a').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>

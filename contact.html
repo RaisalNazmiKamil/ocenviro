@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PT. OC ENVIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        :root { 
+            --primary-orange: #f27420; 
+            --orange-hover: #d95d08;
+            --dark-navy: #0f2137; 
+            --deep-navy: #081426;
+            --light-bg: #f8fafc; 
+            --text-dark: #1e293b; 
+            --gray-text: #64748b; 
+            --border-color: #e2e8f0;
+            --footer-dark: #0a1626;
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #1da851;
+        }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.5; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border-color); }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 2rem; }
+        .logo-img { height: 36px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+        .nav-links a { color: var(--dark-navy); font-weight: 600; font-size: 0.92rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-orange); }
+        .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.88rem; display: inline-block; }
+        .cta-btn:hover { background-color: var(--orange-hover); }
+
+        .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 2rem 1rem 1.8rem; }
+        .animated-title { font-size: 1.8rem; font-weight: 700; display: inline-block; }
+        .animated-title span { color: var(--primary-orange); }
+        .title-accent-line { width: 60px; height: 3px; background: var(--primary-orange); margin: 6px auto 0; border-radius: 2px; }
+        .animated-subtitle { font-size: 0.92rem; color: #94a3b8; margin-top: 0.5rem; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 1.8rem 2rem 2.5rem; }
+
+        .map-wrapper { 
+            background: #ffffff; padding: 0.6rem; border-radius: 12px; border: 1px solid var(--border-color); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 2rem; 
+        }
+        .map-wrapper iframe { width: 100%; height: 420px; border: none; border-radius: 8px; display: block; }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1.8rem; align-items: start; }
+
+        .contact-info-card { background: #fff; padding: 1.4rem 1.6rem; border-radius: 10px; border: 1px solid var(--border-color); border-top: 4px solid var(--primary-orange); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .contact-info-card h3 { color: var(--dark-navy); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.9rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .info-list-compact { display: flex; flex-direction: column; gap: 0.65rem; }
+        .info-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .info-icon { width: 30px; height: 30px; background: rgba(242, 116, 32, 0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.88rem; }
+        .info-text strong { display: block; color: var(--dark-navy); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.1; }
+        .info-text p, .info-text a { color: var(--gray-text); font-size: 0.88rem; line-height: 1.35; }
+        .info-text a:hover { color: var(--primary-orange); text-decoration: underline; }
+
+        .pic-divider { margin: 1.2rem 0 1rem; border-top: 1px dashed var(--border-color); }
+        .pic-card { background: var(--light-bg); padding: 0.9rem; border-radius: 8px; border: 1px solid var(--border-color); border-left: 4px solid var(--dark-navy); display: flex; flex-direction: column; gap: 0.5rem; }
+
+        .wa-link { display: inline-flex; align-items: center; gap: 6px; color: var(--whatsapp-green) !important; font-weight: 700; }
+        .wa-link:hover { color: var(--whatsapp-hover) !important; }
+
+        .btn-whatsapp-direct {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background-color: var(--whatsapp-green); color: #ffffff !important; padding: 0.45rem 0.9rem;
+            border-radius: 6px; font-size: 0.82rem; font-weight: 700; margin-top: 0.4rem;
+            transition: all 0.25s ease; box-shadow: 0 3px 8px rgba(37, 211, 102, 0.25);
+        }
+        .btn-whatsapp-direct:hover { background-color: var(--whatsapp-hover); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(37, 211, 102, 0.35); }
+
+        .contact-form-card { background: #fff; padding: 1.4rem 1.6rem; border-radius: 10px; border: 1px solid var(--border-color); border-top: 4px solid var(--dark-navy); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .contact-form-card h3 { color: var(--dark-navy); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .contact-form-card .form-subtitle { color: var(--gray-text); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.4; }
+
+        .form-row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .form-group { margin-bottom: 0.75rem; }
+        .form-group label { display: block; color: var(--dark-navy); font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .form-group label span { color: var(--primary-orange); }
+        .form-control { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: 5px; font-size: 0.88rem; color: var(--text-dark); background: var(--light-bg); outline: none; transition: all 0.2s; }
+        .form-control:focus { border-color: var(--primary-orange); background: #fff; box-shadow: 0 0 0 2px rgba(242, 116, 32, 0.12); }
+        textarea.form-control { resize: vertical; min-height: 75px; height: 75px; }
+
+        .submit-btn {
+            width: 100%; background-color: var(--primary-orange); color: #fff; padding: 0.65rem; border: none; border-radius: 5px;
+            font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 0.4rem;
+        }
+        .submit-btn:hover { background-color: var(--orange-hover); box-shadow: 0 4px 12px rgba(242, 116, 32, 0.25); }
+
+        /* FOOTER COMPONENT */
+        footer { 
+            background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
+            color: #94a3b8; 
+            border-top: 3px solid var(--primary-orange); 
+            font-size: 0.85rem; 
+            padding-top: 2.2rem; 
+        }
+        
+        .footer-container { 
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem 2rem; 
+            display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 2.5rem; align-items: start;
+        }
+
+        .footer-brand h3 { color: #ffffff; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+        .footer-brand h3 span { color: #ffffff; }
+        .footer-brand p { font-size: 0.82rem; line-height: 1.5; color: #94a3b8; }
+
+        .footer-col h4 { 
+            font-size: 0.88rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
+            margin-bottom: 0.8rem; letter-spacing: 1px; position: relative; padding-bottom: 0.3rem;
+        }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background-color: var(--primary-orange); }
+
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+        .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.82rem; display: inline-block; }
+        .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(4px); }
+
+        .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 0.9rem; }
+        .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .contact-info-list li { color: #cbd5e1; font-size: 0.82rem; display: flex; gap: 8px; align-items: flex-start; }
+        
+        .contact-icon {
+            width: 24px; height: 24px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
+            border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px;
+        }
+
+        .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 0.8rem 2rem; font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
+
+        @media (max-width: 900px) { 
+            .footer-container, .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .form-row-2col { grid-template-columns: 1fr; }
+        }
+    
+        .hamburger {
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 30px; height: 30px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1200;
+        }
+        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-only-item { display: none; }
+
+        @media (max-width: 860px) {
+            .hamburger { display: flex; }
+            .navbar > .cta-btn { display: none; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 78%; max-width: 300px; height: 100vh;
+                background: #ffffff; flex-direction: column; align-items: flex-start; gap: 0;
+                padding: 5.5rem 1.8rem 2rem; box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 1100; overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; width: 100%; padding: 0.85rem 0; font-size: 0.92rem; border-bottom: 1px solid var(--border-color); }
+            .mobile-only-item { display: block; margin-top: 0.8rem; }
+            .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
+        }
+
+        @media (max-width: 768px) { html { font-size: 15px; } }
+        @media (max-width: 480px) { html { font-size: 13.5px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="PT. OC ENVIRO Logo" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html">Projects & Clients</a></li>
+                <li><a href="equipments.html">Equipments</a></li>
+                <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 class="animated-title">Contact <span>Us</span></h1>
+        <div class="title-accent-line"></div>
+        <p class="animated-subtitle">Get in Touch with Us for Consultation & Marine Project Collaboration</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="map-wrapper">
+            <iframe src="https://maps.google.com/maps?q=-6.8815,107.5640&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="contact-grid">
+            
+            <div class="contact-info-card">
+                <h3>Office Location</h3>
+                <div class="info-list-compact">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <strong>Address</strong>
+                            <p>Komplek Bukit Cimindi Raya, Blok J No 12 Kota Cimahi Jawa Barat 40513</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <strong>Phone</strong>
+                            <p>+62 22 8600 2246</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <strong>e-Mail</strong>
+                            <p><a href="mailto:info@ocenviro.com">info@ocenviro.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🌐</div>
+                        <div class="info-text">
+                            <strong>Website</strong>
+                            <p><a href="http://ocenviro.com" target="_blank">ocenviro.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🕒</div>
+                        <div class="info-text">
+                            <strong>Business Hours</strong>
+                            <p>Mon - Fri: 09:30 — 17:30 | Sat - Sun: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pic-divider"></div>
+                <h3>PIC (Person in Charge)</h3>
+                <div class="pic-card">
+                    <div class="info-item">
+                        <div class="info-icon">👤</div>
+                        <div class="info-text">
+                            <strong>Name</strong>
+                            <p style="font-weight: 700; color: var(--dark-navy);">Danny Friyadi</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon" style="background: rgba(37, 211, 102, 0.15);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25D366" viewBox="0 0 16 16">
+                                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.099-.833-.307-1.587-.98-.588-.524-.987-1.171-1.103-1.37-.116-.197-.012-.304.086-.402.088-.088.197-.232.296-.347.099-.115.133-.197.197-.329.065-.133.033-.248-.016-.347-.05-.099-.445-1.07-.61-1.466-.16-.385-.325-.333-.445-.338-.114-.005-.245-.006-.376-.006s-.343.049-.522.247c-.179.197-.685.67-.685 1.634 0 .963.7 1.895.797 2.028.099.133 1.378 2.103 3.339 2.948.467.201.832.322 1.116.412.469.149.896.128 1.233.078.376-.056 1.17-.478 1.335-.94.165-.462.165-.858.116-.94-.048-.083-.18-.133-.377-.232z"/>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <strong>Mobile / WhatsApp</strong>
+                            <p><a href="https://wa.me/6285213451527" target="_blank" rel="noopener noreferrer" class="wa-link">+62 852-1345-1527</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <strong>e-Mail</strong>
+                            <p><a href="mailto:dannyf1899@ocenviro.com">dannyf1899@ocenviro.com</a></p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/6285213451527" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.099-.833-.307-1.587-.98-.588-.524-.987-1.171-1.103-1.37-.116-.197-.012-.304.086-.402.088-.088.197-.232.296-.347.099-.115.133-.197.197-.329.065-.133.033-.248-.016-.347-.05-.099-.445-1.07-.61-1.466-.16-.385-.325-.333-.445-.338-.114-.005-.245-.006-.376-.006s-.343.049-.522.247c-.179.197-.685.67-.685 1.634 0 .963.7 1.895.797 2.028.099.133 1.378 2.103 3.339 2.948.467.201.832.322 1.116.412.469.149.896.128 1.233.078.376-.056 1.17-.478 1.335-.94.165-.462.165-.858.116-.94-.048-.083-.18-.133-.377-.232z"/>
+                        </svg>
+                        Chat via WhatsApp Direct
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h3>Contact Form</h3>
+                <p class="form-subtitle">Drop us a line, whether it is a comment, a question, a work proposition or just a hello.</p>
+                
+                <form id="contactForm" onsubmit="sendDirectEmail(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="fullName">Name <span>(required)</span></label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization">Organization <span>(required)</span></label>
+                            <input type="text" id="organization" class="form-control" placeholder="Enter company / organization" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="senderEmail">Email <span>(required)</span></label>
+                            <input type="email" id="senderEmail" class="form-control" placeholder="ex: name@domain.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobilePhone">Mobile Phone <span>(required)</span></label>
+                            <input type="tel" id="mobilePhone" class="form-control" placeholder="Enter phone / mobile number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" placeholder="Enter message subject / title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="Write your message or project inquiry details here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>PT. OC <span style="color: #ffffff;">ENVIRO</span></h3>
+                <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Projects & Clients</a></li>
+                    <li><a href="equipments.html">Equipments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-card">
+                    <ul class="contact-info-list">
+                        <li><span class="contact-icon">📍</span><span>Komplek Bukit Cimindi Raya, Blok J No 12, Kota Cimahi, Jawa Barat 40513</span></li>
+                        <li><span class="contact-icon">📞</span><span>+62 22 8600 2246</span></li>
+                        <li><span class="contact-icon">✉️</span><span>info@ocenviro.com</span></li>
+                        <li><span class="contact-icon">🌐</span><span>ocenviro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 - OC ENVIRO.Inc - Bandung. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function sendDirectEmail(event) {
+            event.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const organization = document.getElementById('organization').value;
+            const email = document.getElementById('senderEmail').value;
+            const phone = document.getElementById('mobilePhone').value;
+            const subject = document.getElementById('subject').value || "Contact Inquiry";
+            const message = document.getElementById('message').value;
+
+            const targetEmail = "dannyf1899@ocenviro.com";
+            const emailBody = `Sender Name: ${name}%0D%0AOrganization: ${organization}%0D%0ASender Email: ${email}%0D%0AMobile Phone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+            
+            window.location.href = `mailto:${targetEmail}?cc=info@ocenviro.com&subject=${encodeURIComponent(subject)} - [${encodeURIComponent(name)} / ${encodeURIComponent(organization)}]&body=${emailBody}`;
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburgerBtn').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+        }
+        document.querySelectorAll('#navLinks a').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>
