@@ -63,7 +63,7 @@
         .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; display: inline-block; font-size: 0.9rem; }
         .cta-btn:hover { background-color: var(--orange-hover); box-shadow: 0 4px 12px rgba(242, 116, 32, 0.25); }
 
-        /* HERO SECTION DENGAN 3 FOTO BERHIMPITAN & SLIDESHOW */
+        /* HERO SECTION 3 KOLOM BERHIMPITAN TANPA GAMBAR KEMBAR BERSEBELAHAN */
         .hero { 
             position: relative; 
             height: 75vh; 
@@ -94,6 +94,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: #081426;
         }
 
         .slide-img {
@@ -265,32 +266,32 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION DENGAN 3 KOLOM BERHIMPITAN DAN FOTO SLIDESHOW -->
+    <!-- HERO SECTION 3 KOLOM BERHIMPITAN DENGAN URUTAN BEDA TIAP KOLOM AGAR TIDAK KEMBAR -->
     <section class="hero">
         <div class="hero-slideshow">
-            <!-- Kolom 1 -->
-            <div class="slide-col">
+            <!-- Kolom 1 (Mulai dari Front 1) -->
+            <div class="slide-col" data-col="1">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img active">
+                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
                 <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img">
-                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
             </div>
-            <!-- Kolom 2 -->
-            <div class="slide-col">
-                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img active">
-                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
-                <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
-                <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
-                <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
-            </div>
-            <!-- Kolom 3 -->
-            <div class="slide-col">
+            <!-- Kolom 2 (Mulai dari Kawasan) -->
+            <div class="slide-col" data-col="2">
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img active">
+                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img">
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
-                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img">
+            </div>
+            <!-- Kolom 3 (Mulai dari Front 2) -->
+            <div class="slide-col" data-col="3">
+                <img src="images/Slider/front2.JPG" alt="Front 2" class="slide-img active">
+                <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
+                <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
+                <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
+                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
             </div>
         </div>
 
@@ -433,26 +434,30 @@
             }, 2600);
         });
 
-        // HERO SLIDESHOW INDEPENDEN TIAP KOLOM
-        function initColumnSlider(colSelector, intervalTime, delayOffset) {
-            const images = document.querySelectorAll(colSelector + ' img.slide-img');
-            if (images.length === 0) return;
-            let index = 0;
-            
-            setTimeout(() => {
-                setInterval(() => {
-                    images[index].classList.remove('active');
-                    index = (index + 1) % images.length;
-                    images[index].classList.add('active');
-                }, intervalTime);
-            }, delayOffset);
+        // SLIDESHOW 3 KOLOM BERGANTI SECARA BERSAMAAN DALAM DETIK YANG SAMA TANPA GAMBAR KEMBAR BERSEBELAHAN
+        const col1Images = document.querySelectorAll('.slide-col[data-col="1"] img.slide-img');
+        const col2Images = document.querySelectorAll('.slide-col[data-col="2"] img.slide-img');
+        const col3Images = document.querySelectorAll('.slide-col[data-col="3"] img.slide-img');
+        
+        let currentIndex = 0;
+
+        function updateAllColumns() {
+            // Hapus class active dari semua gambar di tiap kolom
+            col1Images[currentIndex].classList.remove('active');
+            col2Images[currentIndex].classList.remove('active');
+            col3Images[currentIndex].classList.remove('active');
+
+            // Pindah ke indeks berikutnya secara serentak
+            currentIndex = (currentIndex + 1) % col1Images.length;
+
+            // Aktifkan gambar baru secara bersamaan pada detik yang sama
+            col1Images[currentIndex].classList.add('active');
+            col2Images[currentIndex].classList.add('active');
+            col3Images[currentIndex].classList.add('active');
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            initColumnSlider('.slide-col:nth-child(1)', 4500, 0);
-            initColumnSlider('.slide-col:nth-child(2)', 4800, 1500);
-            initColumnSlider('.slide-col:nth-child(3)', 5200, 3000);
-        });
+        // Interval waktu berganti bersamaan (4.5 detik)
+        setInterval(updateAllColumns, 4500);
 
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
