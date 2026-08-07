@@ -20,7 +20,7 @@
         body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
 
-        /* PRELOADER DENGAN BACKGROUND NAVY BIRU (#0f2137) */
+        /* PRELOADER */
         #preloader {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: #0f2137; 
@@ -30,25 +30,19 @@
             animation: syncBackground 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             overflow: hidden;
         }
-
         .preloader-glow {
             position: absolute; width: 380px; height: 380px;
             background: radial-gradient(circle, rgba(242, 116, 32, 0.3) 0%, rgba(15, 33, 55, 0) 70%);
             border-radius: 50%; animation: ambientPulse 2.6s infinite ease-in-out; z-index: 1;
         }
-
         .preloader-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
         .logo-wrapper { position: relative; width: 300px; height: 60px; display: flex; align-items: center; justify-content: center; }
-
         .preloader-logo {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; object-position: center;
-            backface-visibility: hidden; transform: translateZ(0); -webkit-font-smoothing: subpixel-antialiased;
-            image-rendering: -webkit-optimize-contrast; image-rendering: smooth;
+            backface-visibility: hidden; transform: translateZ(0);
         }
-
         .logo-white { opacity: 1; animation: syncLogoWhite 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
         .logo-blue { opacity: 0; animation: syncLogoBlue 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-
         .loader-bar { width: 200px; height: 3px; background: rgba(255, 255, 255, 0.2); margin-top: 2rem; position: relative; overflow: hidden; border-radius: 4px; }
         .loader-bar::after { content: ''; position: absolute; left: -100%; top: 0; height: 100%; width: 100%; background: linear-gradient(90deg, transparent, var(--primary-orange), #ffffff); animation: loadingProgress 1.6s infinite ease-in-out; }
 
@@ -69,16 +63,67 @@
         .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; display: inline-block; font-size: 0.9rem; }
         .cta-btn:hover { background-color: var(--orange-hover); box-shadow: 0 4px 12px rgba(242, 116, 32, 0.25); }
 
-        /* HERO SLIDESHOW & ANIMASI TEKS PRESISI SAAT INTRO SELESAI */
-        .hero { position: relative; height: 75vh; min-height: 480px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 1rem; overflow: hidden; }
-        .hero-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0; transition: opacity 1.5s ease-in-out, transform 6s ease-out; transform: scale(1); }
-        .slide.active { opacity: 1; transform: scale(1.05); }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 33, 55, 0.78), rgba(8, 20, 38, 0.88)); z-index: 2; }
+        /* HERO SECTION DENGAN 3 FOTO BERHIMPITAN & SLIDESHOW */
+        .hero { 
+            position: relative; 
+            height: 75vh; 
+            min-height: 480px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: #fff; 
+            padding: 0 1rem; 
+            overflow: hidden; 
+        }
+        
+        .hero-slideshow { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 1; 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0; /* BERHIMPITAN TANPA JARAK */
+        }
+
+        .slide-col {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 6s ease-out;
+            transform: scale(1);
+        }
+        .slide-img.active {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(rgba(15, 33, 55, 0.78), rgba(8, 20, 38, 0.88)); 
+            z-index: 2; 
+        }
         
         .hero-content { position: relative; z-index: 3; max-width: 900px; }
         
-        /* STATE AWAL TEKS TERSEMBUNYI DI BAWAH */
         .hero-content h1, 
         .hero-content p, 
         .hero-btns { 
@@ -87,24 +132,9 @@
             transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* CLASS YANG DITAMBAHKAN VIA JS SETELAH PRELOADER HILANG */
-        .hero-content.hero-animate h1 { 
-            opacity: 1; 
-            transform: translateY(0); 
-            transition-delay: 0.1s; 
-        }
-
-        .hero-content.hero-animate p { 
-            opacity: 1; 
-            transform: translateY(0); 
-            transition-delay: 0.35s; 
-        }
-
-        .hero-content.hero-animate .hero-btns { 
-            opacity: 1; 
-            transform: translateY(0); 
-            transition-delay: 0.6s; 
-        }
+        .hero-content.hero-animate h1 { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+        .hero-content.hero-animate p { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+        .hero-content.hero-animate .hero-btns { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
 
         .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; color: #ffffff; }
         .hero-content p { font-size: 1.15rem; margin-bottom: 2rem; color: #cbd5e1; }
@@ -139,41 +169,28 @@
             font-size: 0.9rem; 
             padding-top: 4.5rem; 
         }
-        
         .footer-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 2.5rem 4rem; 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr 1.4fr; 
-            gap: 3.5rem; 
-            align-items: start;
+            max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 4rem; 
+            display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 3.5rem; align-items: start;
         }
-
         .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
-        .footer-brand h3 span { color: var(--primary-orange); }
+        .footer-brand h3 span { color: #ffffff; }
         .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
-
         .footer-col h4 { 
             font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
             margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
         }
-
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
-
         .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
         .footer-links-list a { color: #cbd5e1; transition: all 0.3s ease; font-size: 0.92rem; display: inline-block; }
         .footer-links-list a:hover { color: var(--primary-orange); transform: translateX(5px); }
-
         .contact-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.5rem; }
         .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
         .contact-info-list li { color: #cbd5e1; font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
-        
         .contact-icon {
             width: 30px; height: 30px; background: rgba(242, 116, 32, 0.15); color: var(--primary-orange);
             border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
         }
-
         .footer-bottom { background-color: var(--footer-dark); color: #64748b; padding: 1.4rem 2rem; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
         .footer-bottom-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; text-align: center; }
 
@@ -182,19 +199,9 @@
 
         @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
     
-        /* ============ MOBILE NAVIGATION (HAMBURGER MENU) ============ */
         .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 30px;
-            height: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1200;
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 30px; height: 30px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1200;
         }
         .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -206,23 +213,11 @@
         @media (max-width: 860px) {
             .hamburger { display: flex; }
             .navbar > .cta-btn { display: none; }
-
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 78%;
-                max-width: 300px;
-                height: 100vh;
-                background: #ffffff;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0;
-                padding: 5.5rem 1.8rem 2rem;
-                box-shadow: -6px 0 25px rgba(0,0,0,0.12);
-                transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
-                z-index: 1100;
-                overflow-y: auto;
+                position: fixed; top: 0; right: -100%; width: 78%; max-width: 300px; height: 100vh;
+                background: #ffffff; flex-direction: column; align-items: flex-start; gap: 0;
+                padding: 5.5rem 1.8rem 2rem; box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 1100; overflow-y: auto;
             }
             .nav-links.active { right: 0; }
             .nav-links li { width: 100%; }
@@ -231,21 +226,14 @@
             .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
         }
 
-        /* ============ MOBILE READABILITY (SMALLER TEXT ON PHONES) ============ */
-        @media (max-width: 768px) {
-            html { font-size: 15px; }
-        }
-        @media (max-width: 480px) {
-            html { font-size: 13.5px; }
-        }
+        @media (max-width: 768px) { html { font-size: 15px; } }
+        @media (max-width: 480px) { html { font-size: 13.5px; } }
     </style>
 </head>
 <body>
 
-    <!-- AUDIO INTRO SFX -->
     <audio id="introSound" src="sound/sound.mp3" preload="auto"></audio>
 
-    <!-- PRELOADER -->
     <div id="preloader">
         <div class="preloader-glow"></div>
         <div class="preloader-content">
@@ -257,7 +245,6 @@
         </div>
     </div>
 
-    <!-- NAVBAR HEADER -->
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo">
@@ -269,7 +256,7 @@
                 <li><a href="services.html">Our Services</a></li>
                 <li><a href="projects.html">Projects & Clients</a></li>
                 <li><a href="equipments.html">Equipments</a></li>
-                            <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+                <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
             </ul>
             <a href="contact.html" class="cta-btn">Contact Us</a>
             <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
@@ -278,20 +265,43 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION DENGAN 3 KOLOM BERHIMPITAN DAN 5 FOTO BEROTASI ACAK/ADIL (Slider-2 & Slider-3 KECUALI) -->
     <section class="hero">
         <div class="hero-slideshow">
-            <div class="slide active" style="background-image: url('images/Slider/Slider-1.jpg');"></div>
-            <div class="slide" style="background-image: url('images/Slider/Slider-2.jpg');"></div>
-            <div class="slide" style="background-image: url('images/Slider/Slider-3.jpg');"></div>
+            <!-- Kolom 1 -->
+            <div class="slide-col">
+                <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img active">
+                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img">
+                <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
+                <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
+                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
+            </div>
+            <!-- Kolom 2 -->
+            <div class="slide-col">
+                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img active">
+                <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
+                <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
+                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
+                <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
+            </div>
+            <!-- Kolom 3 -->
+            <div class="slide-col">
+                <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img active">
+                <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
+                <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
+                <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img">
+                <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
+            </div>
         </div>
+
         <div class="hero-overlay"></div>
+        
         <div class="hero-content" id="heroContent">
             <h1>Ocean Engineering Services</h1>
             <p>Innovative and Integrated Solutions for Survey Services, Site Investigation, and Ocean Engineering Design in Indonesia.</p>
             <div class="hero-btns">
                 <a href="services.html" class="cta-btn">Our Services</a>
-                <a href="contact.html" class="cta-btn" style="background: transparent; border: 2px solid var(--primary-orange);">Contact Technical Team</a>
+                <a href="contact.html" class="cta-btn" style="background: transparent; border: 2px solid var(--primary-orange);">Contact Us</a>
             </div>
         </div>
     </section>
@@ -320,7 +330,7 @@
 
             <div class="service-card reveal">
                 <div class="service-img-wrapper">
-                    <img src="https://www.geomarinedynamics.com/geomardy/assets/images/capabilities/marine-surveys.jpg" alt="Marine Geophysics" class="service-card-img">
+                    <img src="images/geofisika.png" alt="Marine Geophysics" class="service-card-img">
                     <span class="service-badge">Sub-Surface</span>
                 </div>
                 <div class="service-content">
@@ -366,7 +376,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <h3>PT. OC <span>ENVIRO</span></h3>
+                <h3>PT. OC <span style="color: #ffffff;">ENVIRO</span></h3>
                 <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
             </div>
 
@@ -417,34 +427,38 @@
                 playAudio();
             }
 
-            // SETELAH PRELOADER SELESAI, BARU PEMICU ANIMASI TEKS DIJALANKAN (2.6 DETIK)
             setTimeout(function() {
                 document.getElementById('preloader').classList.add('preloader-hidden');
                 document.getElementById('heroContent').classList.add('hero-animate');
             }, 2600);
         });
 
-        // HERO SLIDESHOW
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slideshow .slide');
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 4500);
+        // HERO SLIDESHOW MULTI-KOLOM BEROTASI ADIL & DINAMIS
+        let currentSlideIndex = 0;
+        const col1Slides = document.querySelectorAll('.slide-col:nth-child(1) img.slide-img');
+        const col2Slides = document.querySelectorAll('.slide-col:nth-child(2) img.slide-img');
+        const col3Slides = document.querySelectorAll('.slide-col:nth-child(3) img.slide-img');
 
-        // SCROLL REVEAL ANIMATION
+        function nextHeroSlide() {
+            col1Slides[currentSlideIndex].classList.remove('active');
+            col2Slides[currentSlideIndex].classList.remove('active');
+            col3Slides[currentSlideIndex].classList.remove('active');
+
+            currentSlideIndex = (currentSlideIndex + 1) % col1Slides.length;
+
+            col1Slides[currentSlideIndex].classList.add('active');
+            col2Slides[currentSlideIndex].classList.add('active');
+            col3Slides[currentSlideIndex].classList.add('active');
+        }
+        setInterval(nextHeroSlide, 4500);
+
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('active');
             });
         });
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-    </script>
 
-    <script>
-        // MOBILE HAMBURGER MENU TOGGLE (no dark backdrop, page stays bright & clickable)
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
             document.getElementById('hamburgerBtn').classList.toggle('active');
@@ -453,7 +467,6 @@
             document.getElementById('navLinks').classList.remove('active');
             document.getElementById('hamburgerBtn').classList.remove('active');
         }
-        // Auto-close the menu once a menu link is tapped, so navigation feels natural
         document.querySelectorAll('#navLinks a').forEach(function(link) {
             link.addEventListener('click', closeMobileMenu);
         });

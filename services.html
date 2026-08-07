@@ -20,7 +20,6 @@
         body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
 
-        /* HEADER & NAVBAR */
         header { background-color: #ffffff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-bottom: 1px solid var(--border-color); }
         .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
         .logo-img { height: 38px; display: block; }
@@ -30,7 +29,6 @@
         .cta-btn { background-color: var(--primary-orange); color: #fff; padding: 0.65rem 1.3rem; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
         .cta-btn:hover { background-color: var(--orange-hover); }
 
-        /* PAGE HEADER */
         .page-header { background: linear-gradient(135deg, #0f2137 0%, #081426 100%); color: #fff; text-align: center; padding: 4.5rem 1rem 4rem; }
         .animated-title { font-size: 2.5rem; font-weight: 700; opacity: 0; transform: translateY(25px); animation: corporateFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; display: inline-block; }
         .animated-title span { color: var(--primary-orange); }
@@ -42,25 +40,45 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
 
-        /* DETAILED SERVICE SECTIONS */
         .service-detail-card {
             background: #ffffff; border-radius: 8px; border: 1px solid var(--border-color);
             border-left: 5px solid var(--primary-orange); padding: 2.5rem; margin-bottom: 3.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease;
         }
-
         .service-detail-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(242, 116, 32, 0.1); }
-        .service-detail-card h2 { color: var(--dark-navy); font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 0.6rem; }
+        .service-detail-card h2 { color: var(--dark-navy); font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 0.6rem; letter-spacing: 0.5px; }
 
-        .img-stack-vertical { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 1.8rem; width: 100%; }
-        .service-img-box { width: 100%; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); background: #ffffff; display: flex; align-items: center; justify-content: center; }
-        .service-img { width: 100%; height: auto; display: block; object-fit: contain; transition: transform 0.4s ease; }
+        /* GRID GAMBAR YANG LEBIH TINGGI DAN PROPORSIONAL */
+        .service-img-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .service-img-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .service-img-box {
+            height: 250px; /* DIBUAT LEBIH TINGGI AGAR TIDAK TERPOTONG PENDEK */
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #0f2137;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .service-img-box:hover .service-img { transform: scale(1.05); }
 
-        .ratio-2429-567 { aspect-ratio: 2429 / 567; }
-        .ratio-956-596 { aspect-ratio: 956 / 596; max-width: 750px; margin: 0 auto; }
-        .ratio-930-333 { aspect-ratio: 930 / 333; }
-
-        .service-detail-card:hover .service-img { transform: scale(1.02); }
         .service-body-text { color: var(--gray-text); font-size: 1rem; line-height: 1.7; margin-bottom: 1.2rem; }
         .service-feature-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; }
         .service-feature-list li { position: relative; padding-left: 1.5rem; color: var(--text-dark); font-size: 0.95rem; font-weight: 600; }
@@ -69,12 +87,50 @@
         /* R&D BOX */
         .rnd-box { background: linear-gradient(135deg, #0f2137 0%, #162d47 100%); color: #fff; padding: 3rem 2.5rem; border-radius: 10px; border-top: 4px solid var(--primary-orange); text-align: center; margin-top: 2rem; }
         .rnd-box h2 { color: var(--primary-orange); font-size: 1.8rem; margin-bottom: 0.8rem; font-weight: 700; }
-        .rnd-box p { color: #cbd5e1; font-size: 1rem; max-width: 700px; margin: 0 auto 2rem; }
-        .rnd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
-        .rnd-item { background: rgba(255, 255, 255, 0.05); padding: 1.2rem 1rem; border-radius: 6px; border: 1px solid rgba(242, 116, 32, 0.4); font-weight: 600; font-size: 0.92rem; transition: all 0.3s; }
-        .rnd-item:hover { background: var(--primary-orange); color: #fff; transform: translateY(-4px); }
+        .rnd-box p { color: #cbd5e1; font-size: 1rem; max-width: 700px; margin: 0 auto 2.5rem; }
+        
+        .rnd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .rnd-item { 
+            background: rgba(255, 255, 255, 0.04); 
+            border-radius: 8px; 
+            border: 1px solid rgba(242, 116, 32, 0.3); 
+            overflow: hidden; 
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .rnd-item:hover { 
+            transform: translateY(-6px); 
+            border-color: var(--primary-orange);
+            box-shadow: 0 10px 25px rgba(242, 116, 32, 0.2);
+        }
+        .rnd-img-box {
+            width: 100%;
+            height: 160px;
+            background: #081426;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .rnd-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .rnd-item:hover .rnd-img { transform: scale(1.08); }
+        .rnd-title {
+            padding: 1rem 0.8rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #f8fafc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
 
-        /* FOOTER COMPONENT - MODERN ELEGAN DARK NAVY */
+        /* FOOTER COMPONENT */
         footer { 
             background: linear-gradient(180deg, #0f2137 0%, #081426 100%); 
             color: #94a3b8; 
@@ -85,24 +141,18 @@
         }
         
         .footer-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 2.5rem 4rem; 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr 1.4fr; 
-            gap: 3.5rem; 
-            align-items: start;
+            max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 4rem; 
+            display: grid; grid-template-columns: 1.2fr 0.8fr 1.4fr; gap: 3.5rem; align-items: start;
         }
 
         .footer-brand h3 { color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.5px; }
-        .footer-brand h3 span { color: var(--primary-orange); }
+        .footer-brand h3 span { color: #ffffff; }
         .footer-brand p { font-size: 0.92rem; line-height: 1.7; color: #94a3b8; }
 
         .footer-col h4 { 
             font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; 
             margin-bottom: 1.5rem; letter-spacing: 1px; position: relative; padding-bottom: 0.5rem;
         }
-
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background-color: var(--primary-orange); }
 
         .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
@@ -124,21 +174,16 @@
         .reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } }
+        @media (max-width: 900px) { 
+            .footer-container { grid-template-columns: 1fr; gap: 2.5rem; } 
+            .service-img-grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .service-img-grid-2 { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) { .service-img-grid-3 { grid-template-columns: 1fr; } }
     
-        /* ============ MOBILE NAVIGATION (HAMBURGER MENU) ============ */
         .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 30px;
-            height: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1200;
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 30px; height: 30px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1200;
         }
         .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--dark-navy); border-radius: 2px; transition: all 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -150,23 +195,11 @@
         @media (max-width: 860px) {
             .hamburger { display: flex; }
             .navbar > .cta-btn { display: none; }
-
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 78%;
-                max-width: 300px;
-                height: 100vh;
-                background: #ffffff;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0;
-                padding: 5.5rem 1.8rem 2rem;
-                box-shadow: -6px 0 25px rgba(0,0,0,0.12);
-                transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
-                z-index: 1100;
-                overflow-y: auto;
+                position: fixed; top: 0; right: -100%; width: 78%; max-width: 300px; height: 100vh;
+                background: #ffffff; flex-direction: column; align-items: flex-start; gap: 0;
+                padding: 5.5rem 1.8rem 2rem; box-shadow: -6px 0 25px rgba(0,0,0,0.12);
+                transition: right 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 1100; overflow-y: auto;
             }
             .nav-links.active { right: 0; }
             .nav-links li { width: 100%; }
@@ -175,18 +208,12 @@
             .mobile-only-item a.cta-btn { display: block; text-align: center; width: 100%; border: none; }
         }
 
-        /* ============ MOBILE READABILITY (SMALLER TEXT ON PHONES) ============ */
-        @media (max-width: 768px) {
-            html { font-size: 15px; }
-        }
-        @media (max-width: 480px) {
-            html { font-size: 13.5px; }
-        }
+        @media (max-width: 768px) { html { font-size: 15px; } }
+        @media (max-width: 480px) { html { font-size: 13.5px; } }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR HEADER -->
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo">
@@ -198,7 +225,7 @@
                 <li><a href="services.html" class="active">Our Services</a></li>
                 <li><a href="projects.html">Projects & Clients</a></li>
                 <li><a href="equipments.html">Equipments</a></li>
-                            <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
+                <li class="mobile-only-item"><a href="contact.html" class="cta-btn">Contact Us</a></li>
             </ul>
             <a href="contact.html" class="cta-btn">Contact Us</a>
             <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
@@ -207,7 +234,6 @@
         </nav>
     </header>
 
-    <!-- PAGE HEADER -->
     <div class="page-header">
         <h1 class="animated-title">Our <span>Services</span></h1>
         <div class="title-accent-line"></div>
@@ -215,16 +241,16 @@
     </div>
 
     <div class="container">
-        <!-- SERVICE 1 -->
+        <!-- 1. SURVEY AND SITE INVESTIGATION -->
         <div class="service-detail-card reveal" id="survey">
-            <h2>1. Survey and Site Investigation</h2>
-            <div class="img-stack-vertical">
-                <div class="service-img-box ratio-2429-567">
-                    <img src="images/services1-1.jpg" alt="Survey Equipment Deployment" class="service-img">
-                </div>
-                <div class="service-img-box ratio-2429-567">
-                    <img src="images/services1-2.jpg" alt="Field Survey Operations" class="service-img">
-                </div>
+            <h2>SURVEY AND SITE INVESTIGATION</h2>
+            <div class="service-img-grid-3">
+                <div class="service-img-box"><img src="images/Services/Topografi (2).jpg" alt="Topografi" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/Discharge Current Valeport (2).jpg" alt="Discharge Current" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/IMG20190704101758.jpg" alt="Field Survey" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/Soil Investigation.jpeg" alt="Soil Investigation" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/IMG-20190711-WA0009.jpg" alt="Field Survey 2" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/IMG_8049.JPG" alt="Survey 3" class="service-img"></div>
             </div>
             <p class="service-body-text">
                 Comprehensive site investigation services delivering high-precision physical data for offshore and coastal developments. We utilize advanced hydrographic sonar, geophysical profilers, and geotechnical drilling to assess seabed conditions, soil stability, and navigation safety.
@@ -237,13 +263,12 @@
             </ul>
         </div>
 
-        <!-- SERVICE 2 -->
+        <!-- 2. OCEAN ENVIRONMENTAL MODELLING -->
         <div class="service-detail-card reveal" id="modelling">
-            <h2>2. Ocean Environmental Modelling</h2>
-            <div class="img-stack-vertical">
-                <div class="service-img-box ratio-956-596">
-                    <img src="images/services2.jpg" alt="Ocean Hydrodynamic Simulation" class="service-img">
-                </div>
+            <h2>OCEAN ENVIRONMENTAL MODELLING</h2>
+            <div class="service-img-grid-2">
+                <div class="service-img-box"><img src="images/Services/Model.jpg" alt="Ocean Model" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/model1.jpeg" alt="Model Simulation" class="service-img"></div>
             </div>
             <p class="service-body-text">
                 Advanced 2D and 3D numerical simulations analyzing hydrodynamic behaviors, thermal discharges, and sediment transport in coastal and estuarine systems. Our models support environmental impact assessments (EIA) and thermal plume dispersion analysis for power plants and industrial facilities.
@@ -256,11 +281,11 @@
             </ul>
         </div>
 
-        <!-- SERVICE 3 -->
+        <!-- 3. GIS (GEOGRAPHIC INFORMATION SYSTEM) - MENGGUNAKAN 1 GAMBAR services3.jpg -->
         <div class="service-detail-card reveal" id="gis">
-            <h2>3. GIS (Geographic Information System)</h2>
-            <div class="img-stack-vertical">
-                <div class="service-img-box ratio-930-333">
+            <h2>GIS (GEOGRAPHIC INFORMATION SYSTEM)</h2>
+            <div style="max-width: 100%; margin-bottom: 1.8rem;">
+                <div class="service-img-box" style="height: 320px;">
                     <img src="images/services3.jpg" alt="GIS Spatial Data Mapping" class="service-img">
                 </div>
             </div>
@@ -275,13 +300,13 @@
             </ul>
         </div>
 
-        <!-- SERVICE 4 -->
+        <!-- 4. ONSHORE ENGINEERING DESIGN -->
         <div class="service-detail-card reveal" id="onshore">
-            <h2>4. Onshore Engineering Design</h2>
-            <div class="img-stack-vertical">
-                <div class="service-img-box ratio-930-333">
-                    <img src="images/services4.jpg" alt="Onshore Port and Jetty Design" class="service-img">
-                </div>
+            <h2>ONSHORE ENGINEERING DESIGN</h2>
+            <div class="service-img-grid-3">
+                <div class="service-img-box"><img src="images/Services/General View (2).jpg" alt="General View Onshore" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/20240812_123342.jpg" alt="Onshore Development" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/Site Visit HSE (3).JPG" alt="Site Visit HSE" class="service-img"></div>
             </div>
             <p class="service-body-text">
                 Detailed Engineering Design (DED) for coastal structures, port terminals, jetties, and shoreline protection systems. We integrate environmental data with structural engineering to build resilient and cost-effective coastal infrastructure.
@@ -294,13 +319,13 @@
             </ul>
         </div>
 
-        <!-- SERVICE 5 -->
+        <!-- 5. OFFSHORE ENGINEERING DESIGN -->
         <div class="service-detail-card reveal" id="offshore">
-            <h2>5. Offshore Engineering Design</h2>
-            <div class="img-stack-vertical">
-                <div class="service-img-box ratio-2429-567">
-                    <img src="images/services5.jpg" alt="Offshore Structure Engineering" class="service-img">
-                </div>
+            <h2>OFFSHORE ENGINEERING DESIGN</h2>
+            <div class="service-img-grid-3">
+                <div class="service-img-box"><img src="images/Services/IMG_0850.JPG" alt="Offshore Structure" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/IMG_0870.JPG" alt="Offshore Facility" class="service-img"></div>
+                <div class="service-img-box"><img src="images/Services/NDT (5).JPG" alt="NDT Inspection" class="service-img"></div>
             </div>
             <p class="service-body-text">
                 Specialized engineering solutions for offshore energy structures, subsea pipeline routing, and mooring revitalization. Our technical team conducts environmental criteria estimation and structural integrity assessments under extreme wave and current loading conditions.
@@ -318,19 +343,30 @@
             <h2>Research & Development (R&D)</h2>
             <p>In-house marine instrument and device development by PT. OC ENVIRO to enhance field research efficiency and accuracy:</p>
             <div class="rnd-grid">
-                <div class="rnd-item">AWLR (Water Level Recorder)</div>
-                <div class="rnd-item">Current Meter</div>
-                <div class="rnd-item">ASV (Autonomous Surface Vehicle)</div>
-                <div class="rnd-item">Met-Ocean Online Data System</div>
+                <div class="rnd-item">
+                    <div class="rnd-img-box"><img src="images/AWLR.png" alt="AWLR Water Level Recorder" class="rnd-img"></div>
+                    <div class="rnd-title">AWLR (Water Level Recorder)</div>
+                </div>
+                <div class="rnd-item">
+                    <div class="rnd-img-box"><img src="images/CURRENT.png" alt="Current Meter" class="rnd-img"></div>
+                    <div class="rnd-title">Current Meter</div>
+                </div>
+                <div class="rnd-item">
+                    <div class="rnd-img-box"><img src="images/usv.jpg" alt="Autonomous Surface Vehicle" class="rnd-img"></div>
+                    <div class="rnd-title">USV (Autonomous Surface Vehicle)</div>
+                </div>
+                <div class="rnd-item">
+                    <div class="rnd-img-box"><img src="images/AWS.png" alt="Automatic Weather Station" class="rnd-img"></div>
+                    <div class="rnd-title">Automatic Weather Station (AWS)</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <h3>PT. OC <span>ENVIRO</span></h3>
+                <h3>PT. OC <span style="color: #ffffff;">ENVIRO</span></h3>
                 <p>Innovative and integrated solutions for hydrographic survey, site investigation, and ocean engineering consultancy services across Indonesia.</p>
             </div>
 
@@ -372,10 +408,7 @@
             });
         });
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-    </script>
 
-    <script>
-        // MOBILE HAMBURGER MENU TOGGLE (no dark backdrop, page stays bright & clickable)
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
             document.getElementById('hamburgerBtn').classList.toggle('active');
@@ -384,7 +417,6 @@
             document.getElementById('navLinks').classList.remove('active');
             document.getElementById('hamburgerBtn').classList.remove('active');
         }
-        // Auto-close the menu once a menu link is tapped, so navigation feels natural
         document.querySelectorAll('#navLinks a').forEach(function(link) {
             link.addEventListener('click', closeMobileMenu);
         });
