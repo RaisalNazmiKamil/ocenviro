@@ -86,7 +86,7 @@
             z-index: 1; 
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            gap: 0; /* BERHIMPITAN TANPA JARAK */
         }
 
         .slide-col {
@@ -265,9 +265,10 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION DENGAN 3 KOLOM BERHIMPITAN DAN 5 FOTO BEROTASI ACAK/ADIL (Slider-2 & Slider-3 KECUALI) -->
     <section class="hero">
         <div class="hero-slideshow">
+            <!-- Kolom 1 -->
             <div class="slide-col">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img active">
                 <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img">
@@ -275,6 +276,7 @@
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
             </div>
+            <!-- Kolom 2 -->
             <div class="slide-col">
                 <img src="images/Slider/front2.jpg" alt="Front 2" class="slide-img active">
                 <img src="images/Slider/Kawasan 2.jpg" alt="Kawasan 2" class="slide-img">
@@ -282,6 +284,7 @@
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img">
                 <img src="images/Slider/front1.jpg" alt="Front 1" class="slide-img">
             </div>
+            <!-- Kolom 3 -->
             <div class="slide-col">
                 <img src="images/Slider/Kawasan.jpg" alt="Kawasan" class="slide-img active">
                 <img src="images/Slider/Kawasan 3.jpg" alt="Kawasan 3" class="slide-img">
@@ -430,6 +433,7 @@
             }, 2600);
         });
 
+        // HERO SLIDESHOW MULTI-KOLOM BEROTASI ADIL & DINAMIS
         let currentSlideIndex = 0;
         const col1Slides = document.querySelectorAll('.slide-col:nth-child(1) img.slide-img');
         const col2Slides = document.querySelectorAll('.slide-col:nth-child(2) img.slide-img');
