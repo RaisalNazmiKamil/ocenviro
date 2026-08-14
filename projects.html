@@ -389,7 +389,9 @@
 
         <!-- TOMBOL FILTER TAHUN -->
         <div class="filter-container reveal">
-            <button class="filter-btn active" onclick="filterYear('2024', event)">2024</button>
+            <button class="filter-btn active" onclick="filterYear('2026', event)">2026</button>
+            <button class="filter-btn" onclick="filterYear('2025', event)">2025</button>
+            <button class="filter-btn" onclick="filterYear('2024', event)">2024</button>
             <button class="filter-btn" onclick="filterYear('2023', event)">2023</button>
             <button class="filter-btn" onclick="filterYear('2022', event)">2022</button>
             <button class="filter-btn" onclick="filterYear('2021', event)">2021</button>
@@ -404,24 +406,52 @@
 
         <!-- BAGIAN BAWAH: DAFTAR PROJEK PER TAHUN -->
         <div class="timeline">
-            <div class="year-group reveal" data-year="2024">
-                <div class="year-heading">2024</div>
+            <!-- 2026 -->
+            <div class="year-group reveal" data-year="2026">
+                <div class="year-heading">2026</div>
                 <div class="project-list">
-                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Technical Advisory Ocean Engineer</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kep. Seribu, Jakarta | Client: PT Pandega Desain Weharima</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Bathymetry Survey in Siak</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Siak | Client: PT MOSES ENGINEERING</p></div>
-                    <div class="project-item"><span class="scope-tag">Modelling & Design Engineering</span><h4>Desain Thermal Dispersion Timor 1</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Timor | Client: PT. PP Persero</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Advanced Soil Investigation for Ammonia Urea Plant Area in Fakfak</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Fakfak | Client: PT Pupuk Kalimantan Timur (PKT)</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Oceanography Survey Opus Bay Batam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa Infrayasa</p></div>
-                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Coastal Engineering Design Opus Bay Batam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa Infrayasa</p></div>
-                    <div class="project-item"><span class="scope-tag">Design & Survey</span><h4>Met-Oceanography, Bathymetry & DED Jetty Lampung</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Bathymetry & Oceanography Survey Obi Island</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Obi, Maluku Utara | Client: PT Intim Mining Sentosa</p></div>
-                    <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Oceanography Survey and Soil Investigation for EPC Arun LNG Hub Expansion Facility Project</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Arun, Aceh | Client: PT. IKPT</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Topography And Oceanography Survey Sibolga</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Sibolga, Sumatera Utara | Client: PT MOSES ENGINEERING</p></div>
-                    <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Soil Investigation & Topography Survey Blawan Ijen GPP Unit</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ijen | Client: PT. IKPT</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey And Hydrology Study</span><h4>Hydrology Study Sungai Mahakam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Mahakam | Client: PT. Indovisi Sentosa Mandiri</p></div>
+                    <div class="project-item"><span class="scope-tag">Geophysical Survey</span><h4>Geophysical Survey</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Buru, Kepulauan Riau | Client: CV Amarta Jasa Karya</p></div>
+                    <div class="project-item"><span class="scope-tag">Survey Investigation And Engineering Design</span><h4>Survey and Design Coastal Protection for Resort Bintan</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bintan, Kepulauan Riau | Client: PT. Aramsa Infrayasa</p></div>
+                    <div class="project-item"><span class="scope-tag">Geophysical Survey</span><h4>Sub Bottom Profiler Survey Area Dredging</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bangkalan, East Java | Client: PT Samudera Galangan Madura</p></div>
+                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Engineering Design Main Jetty at Balak Island</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Balak, Lampung | Client: PT. Pantai Bensor Rekreasi Bahari</p></div>
                 </div>
             </div>
 
+            <!-- 2025 -->
+            <div class="year-group reveal" data-year="2025">
+                <div class="year-heading">2025</div>
+                <div class="project-list">
+                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Port Masterplan for Tanjung Pinggir Development Batam Project</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tanjung Pinggir Batam | Client: PT Pandega Desain Weharima</p></div>
+                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Engineering Design Service Jetty at Balak Island, Lampung</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pulau Balak, Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p></div>
+                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Topography, Bathymetry and Seabed Sampling Survey for ECOFishing Project in PPS Belawan</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> PPS Belawan, Medan | Client: PT Haskoning Indonesia</p></div>
+                    <div class="project-item"><span class="scope-tag">Topography Survey</span><h4>Topography Survey in PT AMMAN Mineral Sumbawa</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Benete, Sumbawa | Client: PT Haskoning Indonesia</p></div>
+                    <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Topography Survey And Soil Investigation Work For FEED Green Refinery Plaju Project</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Plaju South Sumatera | Client: PT. IKPT</p></div>
+                    <div class="project-item"><span class="scope-tag">Geophysical Survey</span><h4>Seismic Single Channel Survey</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Sanur - Bali | Client: PT Unggul Sarana Survey</p></div>
+                    <div class="project-item"><span class="scope-tag">Geophysical Survey</span><h4>Seismic Single Channel Survey</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Karimun, Kep. Riau | Client: Personal</p></div>
+                    <div class="project-item"><span class="scope-tag">Survey and Assessment</span><h4>Bathymetry Survey for Navigation Assessment</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pelabuhan Tanjung Api Api Sumatera Selatan | Client: PT IMEC INTERNATIONAL SERVICES</p></div>
+                    <div class="project-item"><span class="scope-tag">Geophysical Survey</span><h4>Sub Bottom Profiler Survey</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pontianak, West Kalimantan | Client: PT Geovaruna</p></div>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="year-group reveal" data-year="2024">
+                <div class="year-heading">2024</div>
+                <div class="project-list">
+                    <div class="project-item"><span class="scope-tag">Hydrographic Survey</span><h4>Bathymetry Surver in Siak</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Siak, Riau | Client: PT MOSES ENGINEERING</p></div>
+                    <div class="project-item"><span class="scope-tag">Modelling & Engineering Design</span><h4>Desain Thermal Dispersion PLTU Timor 1</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Oisina, Timor | Client: PT. PP Persero</p></div>
+                    <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Advanced Soil Investigation for Ammonia Urea Plant Area in Fakfak</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Fakfak, West Papua | Client: PT Pupuk Kalimantan Timur</p></div>
+                    <div class="project-item"><span class="scope-tag">Hydrology Study</span><h4>Hydrology Study Sungai Mahakam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Benangaq, Kutai Barat | Client: PT. Indovisi Sentosa Mandiri</p></div>
+                    <div class="project-item"><span class="scope-tag">Soil Investigation & Topography Survey</span><h4>Soil Investigation & Topography Survey Blawan Ijen GPP Unit</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Ijen, Jawa Timur | Client: PT. IKPT</p></div>
+                    <div class="project-item"><span class="scope-tag">Topography And Oceanography Survey</span><h4>Topography And Oceanography Survey Sibolga</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Sibolga, North Sumatera | Client: PT MOSES ENGINEERING</p></div>
+                    <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Oceanography Survey and Soil Investigation for EPC Arun LNG Hub Expansion Facility Project</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lhokseumawe, Aceh | Client: PT. IKPT</p></div>
+                    <div class="project-item"><span class="scope-tag">Design & Survey</span><h4>Met-Oceanography, Bathymetry, & DED Jetty lampung</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lampung | Client: PT Pantai Bensor Rekreasi Bahari</p></div>
+                    <div class="project-item"><span class="scope-tag">Oceanography Survey</span><h4>Oceanography Survey Opus Bay Batam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa</p></div>
+                    <div class="project-item"><span class="scope-tag">Engineering Design</span><h4>Coastal Engineering Design Opus Bay Batam</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Batam | Client: PT. Aramsa</p></div>
+                    <div class="project-item"><span class="scope-tag">Bathymeteri and Oceanography Survey</span><h4>Bathymeteri and Oceanography Survey at Obi Island</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Flux - Obi Island | Client: PT Geocem</p></div>
+                </div>
+            </div>
+
+            <!-- 2023 -->
             <div class="year-group reveal" data-year="2023">
                 <div class="year-heading">2023</div>
                 <div class="project-list">
@@ -435,6 +465,7 @@
                 </div>
             </div>
 
+            <!-- 2022 -->
             <div class="year-group reveal" data-year="2022">
                 <div class="year-heading">2022</div>
                 <div class="project-list">
@@ -450,18 +481,19 @@
                 </div>
             </div>
 
+            <!-- 2021 -->
             <div class="year-group reveal" data-year="2021">
                 <div class="year-heading">2021</div>
                 <div class="project-list">
                     <div class="project-item"><span class="scope-tag">Survey</span><h4>River Cleanup System in Pantai Indah Kapuk Jakarta</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT Haskoning Indonesia</p></div>
                     <div class="project-item"><span class="scope-tag">Soil Investigation</span><h4>Site and Soil Investigation in Cilegon Banten</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Cilegon, Banten | Client: PT. Witteveen Bos Indonesia</p></div>
                     <div class="project-item"><span class="scope-tag">Survey</span><h4>Survey Investigation and Design for Port in Tarakan Area</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tarakan | Client: Balikpapan Chip Lestari</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Survey Investigation and Design for Port in Tarakan - South Area</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tarakan | Client: Balikpapan Chip Lestari</p></div>
                     <div class="project-item"><span class="scope-tag">Survey & Scuba Diving</span><h4>Underwater - Geophysical Survey Pertamina Balikpapan</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Balikpapan | Client: RDMP JO Balikpapan</p></div>
                     <div class="project-item"><span class="scope-tag">Survey & Scuba Diving</span><h4>Benthic Survey & Sediment Sampling</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Tuban | Client: PT Haskoning Indonesia</p></div>
                 </div>
             </div>
 
+            <!-- 2020 -->
             <div class="year-group reveal" data-year="2020">
                 <div class="year-heading">2020</div>
                 <div class="project-list">
@@ -470,6 +502,7 @@
                 </div>
             </div>
 
+            <!-- 2019 -->
             <div class="year-group reveal" data-year="2019">
                 <div class="year-heading">2019</div>
                 <div class="project-list">
@@ -481,6 +514,7 @@
                 </div>
             </div>
 
+            <!-- 2018 -->
             <div class="year-group reveal" data-year="2018">
                 <div class="year-heading">2018</div>
                 <div class="project-list">
@@ -490,39 +524,36 @@
                 </div>
             </div>
 
+            <!-- 2017 -->
             <div class="year-group reveal" data-year="2017">
                 <div class="year-heading">2017</div>
                 <div class="project-list">
                     <div class="project-item"><span class="scope-tag">Seismic Single Channel</span><h4>Survey Seismik Pantul Dangkal Perairan Krakatau, Banten</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: Lembaga Ilmu Pengetahuan Indonesia (LIPI)</p></div>
                     <div class="project-item"><span class="scope-tag">Hydrographic & Topographic Survey</span><h4>Pelaksanaan Survei Topografi, Batimetri, dan Pasang Surut Pelabuhan di Gorontalo</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. Atlantis Bina Persada</p></div>
                     <div class="project-item"><span class="scope-tag">Geotechnical Investigation</span><h4>Pekerjaan Soil Investigation Fasilitas PLTU Bantaeng</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bantaeng | Client: PT. PP Persero</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Survei Batimetri, Topography dan Pengamatan Pasang Surut Alur Pelayaran Sungai Jambi</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jambi | Client: PT AECOM</p></div>
+                    <div class="project-item"><span class="scope-tag">Survey</span><h4>Survei Batimetri, Topography dan Pengamatan Pasang Surut Alur Pelayaran Sungai Jambi (Kuala Tungkal)</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kuala Tungkal, Jambi | Client: PT AECOM</p></div>
                     <div class="project-item"><span class="scope-tag">Survey</span><h4>Pekerjaan Batimetri dan Met-Ocean Survey Fasilitas Jetty Rencana PLTU Bantaeng</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bantaeng | Client: PT. PP Persero</p></div>
                     <div class="project-item"><span class="scope-tag">Soil Investigation & Survey</span><h4>Soil Investigation, Sea & Hydrological Survey Proyek Lombok GECC Power Plant (Peaker) 130-150 MW</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lombok | Client: PT. PP Persero</p></div>
-                    <div class="project-item"><span class="scope-tag">Hydrographic Survey Engineering Analysis</span><h4>Survei Batimetri dan Studi Kelayakan Pelabuhan</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Balikpapan | Client: PT. Atlantis Bina Persada</p></div>
                 </div>
             </div>
 
+            <!-- 2016 -->
             <div class="year-group reveal" data-year="2016">
                 <div class="year-heading">2016</div>
                 <div class="project-list">
                     <div class="project-item"><span class="scope-tag">Hydrographic Survey</span><h4>Survei Hidrografi Ciujung River</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: PT. Panca Terra Firma</p></div>
                     <div class="project-item"><span class="scope-tag">Hydrographic, Met-Ocean Survey</span><h4>Pekerjaan Survey Batimetri, Topografi dan Pasang Surut Lokasi Jetty PLTG (Peaker) 100 MW</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. PP Persero</p></div>
-                    <div class="project-item"><span class="scope-tag">Hydrographic, Met-Ocean Survey</span><h4>Survei Hidrografi Met-Ocean Dermaga Kelolokan</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kalimantan Timur | Client: PT. Hanujaya Hutanindo</p></div>
                     <div class="project-item"><span class="scope-tag">Met-Ocean Survey</span><h4>Met-Oceanography Survey PLTU Lontar</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Banten | Client: Black And Veatch</p></div>
-                    <div class="project-item"><span class="scope-tag">Hydrographic Survey</span><h4>Survei Hidrografi Paket 6 - Papua C</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Papua | Client: Badan Informasi Geospasial (BIG)</p></div>
-                    <div class="project-item"><span class="scope-tag">Survey Hydrographic, DED</span><h4>Survey Investigasi Dan Desain Pengerukan PLTU Muara Karang</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jakarta | Client: PT. LAPI Ganeshatama</p></div>
-                    <div class="project-item"><span class="scope-tag">Seismic Single Channel & Hydrographic</span><h4>Survey Seismik Pantul Dangkal IUP Durai</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Riau | Client: PT. Wahana Indah Karya</p></div>
-                    <div class="project-item"><span class="scope-tag">Geotechnical Investigation</span><h4>Pekerjaan Soil Investigasi di Laut dan Pengujian Laboratorium Sampel Uji Tanah Untuk Jetty PLTGU Gorontalo</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Gorontalo | Client: PT. PP Persero</p></div>
+                    <div class="project-item"><span class="scope-tag">Hydrographic Survey</span><h4>Survei Hidrografi LPI Papua (Jayapura)</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Jayapura, Papua | Client: Badan Informasi Geospasial (BIG)</p></div>
                 </div>
             </div>
 
+            <!-- 2015 -->
             <div class="year-group reveal" data-year="2015">
                 <div class="year-heading">2015</div>
                 <div class="project-list">
-                    <div class="project-item"><span class="scope-tag">Ocean Environmental Modelling</span><h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Selat Lirung Dan Selat Lampa</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bali | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p></div>
-                    <div class="project-item"><span class="scope-tag">Ocean Environmental Modelling</span><h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Nusa Penida-Bali</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bali | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p></div>
-                    <div class="project-item"><span class="scope-tag">Ocean Environmental Modelling</span><h4>Pemodelan Potensi Arus Laut Untuk Implementasi Pembangkit Listrik Tenaga Arus Laut (PLTAL) Di Perairan Selat Sugi - Kep. Riau</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Riau | Client: Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)</p></div>
+                    <div class="project-item"><span class="scope-tag">Ocean Environmental Modelling</span><h4>Pemodelan Potensi Arus Laut Untuk PLTAL Di Perairan Selat Sugi</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Kep. Riau | Client: BBSPGL</p></div>
+                    <div class="project-item"><span class="scope-tag">Ocean Environmental Modelling</span><h4>Pemodelan Potensi Arus Laut Untuk PLTAL Di Perairan Nusa Penida</h4><p><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Bali | Client: BBSPGL</p></div>
                 </div>
             </div>
         </div>
@@ -578,49 +609,149 @@
             maxZoom: 10
         });
 
-        // TILE LAYER VOYAGER / TERRAIN AGAR NYAMBUNG DENGAN TEMA
+        // TILE LAYER VOYAGER / TERRAIN
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
 
-        // DATA TITIK PROYEK SPESIFIK TIAP KOTA / WILAYAH (2015 - 2024)
+        // DATA TITIK PROYEK SPESIFIK TIAP KOTA / WILAYAH (SESUAI KOORDINAT PRESISI BARU)
         const cityProjects = [
             {
-                city: "Fakfak, Papua",
+                city: "Pulau Buru, Kepulauan Riau",
+                lat: 0.8680095278816597, lng: 103.52019237737895,
+                projects: "• Geophysical Survey (2026)"
+            },
+            {
+                city: "Bintan, Kepulauan Riau",
+                lat: 1.0827, lng: 104.4534,
+                projects: "• Survey and Design Coastal Protection for Resort Bintan (2026)"
+            },
+            {
+                city: "Bangkalan, East Java",
+                lat: -7.0250, lng: 112.7419,
+                projects: "• Sub Bottom Profiler Survey Area Dredging (2026)"
+            },
+            {
+                city: "Pulau Balak, Lampung",
+                lat: -5.6700, lng: 105.4500,
+                projects: "• Engineering Design Main Jetty at Balak Island (2026 & 2025)<br>• Hydro-Oceanography Habitat Mapping (2022)"
+            },
+            {
+                city: "Tanjung Pinggir Batam",
+                lat: 1.1300, lng: 103.9500,
+                projects: "• Port Masterplan for Tanjung Pinggir Development Batam Project (2025)"
+            },
+            {
+                city: "PPS Belawan, Medan",
+                lat: 3.7847, lng: 98.6872,
+                projects: "• Topography, Bathymetry and Seabed Sampling Survey for ECOFishing Project (2025)"
+            },
+            {
+                city: "Benete, Sumbawa",
+                lat: -8.9667, lng: 116.7500,
+                projects: "• Topography Survey in PT AMMAN Mineral Sumbawa (2025)"
+            },
+            {
+                city: "Plaju South Sumatera",
+                lat: -2.9833, lng: 104.7833,
+                projects: "• Topography Survey And Soil Investigation FEED Green Refinery Plaju (2025)"
+            },
+            {
+                city: "Sanur - Bali",
+                lat: -8.7000, lng: 115.2600,
+                projects: "• Seismic Single Channel Survey (2025)"
+            },
+            {
+                city: "Karimun, Kep. Riau",
+                lat: 1.0100, lng: 103.4350,
+                projects: "• Seismic Single Channel Survey (2025 & 2018)"
+            },
+            {
+                city: "Pelabuhan Tanjung Api Api Sumatera Selatan",
+                lat: -2.3333, lng: 104.7833,
+                projects: "• Bathymetry Survey for Navigation Assessment (2025)"
+            },
+            {
+                city: "Pontianak, West Kalimantan",
+                lat: -0.0263, lng: 109.3425,
+                projects: "• Sub Bottom Profiler Survey (2025)"
+            },
+            {
+                city: "Siak, Riau",
+                lat: 0.7761, lng: 102.0519,
+                projects: "• Bathymetry Survey in Siak (2024)"
+            },
+            {
+                city: "Oisina, Timor",
+                lat: -10.1772, lng: 123.6070,
+                projects: "• Desain Thermal Dispersion PLTU Timor 1 (2024 & 2022)<br>• Thermal Dispersion Study (2019)"
+            },
+            {
+                city: "Fakfak, West Papua",
                 lat: -2.9238, lng: 132.2965,
                 projects: "• Advanced Soil Investigation for Ammonia Urea Plant Area (2024)"
             },
             {
-                city: "Pulau Obi, Maluku Utara",
+                city: "Benangaq, Kutai Barat",
+                lat: -0.582383969751425, lng:117.27788190147254,
+                projects: "• Hydrology Study Sungai Mahakam (2024)"
+            },
+            {
+                city: "Ijen, Jawa Timur",
+                lat: -8.0583, lng: 114.2417,
+                projects: "• Soil Investigation & Topography Survey Blawan Ijen GPP (2024 & 2022)"
+            },
+            {
+                city: "Sibolga, North Sumatera",
+                lat: 1.7417, lng: 98.7786,
+                projects: "• Topography And Oceanography Survey Sibolga (2024)"
+            },
+            {
+                city: "Lhokseumawe, Aceh",
+                lat: 5.1833, lng: 97.1333,
+                projects: "• Oceanography Survey and Soil Investigation for EPC Arun LNG Hub (2024 & 2023)"
+            },
+            {
+                city: "Batam",
+                lat: 1.0456, lng: 104.0305,
+                projects: "• Oceanography & Coastal Design Opus Bay Batam (2024)"
+            },
+            {
+                city: "Flux - Obi Island",
                 lat: -1.5583, lng: 127.7333,
-                projects: "• Bathymetry & Oceanography Survey Obi Island (2024)"
+                projects: "• Bathymeteri and Oceanography Survey at Obi Island (2024)"
             },
             {
-                city: "Gorontalo",
-                lat: 0.5400, lng: 123.0595,
-                projects: "• Soil Investigation Jetty PLTGU Gorontalo (2016)<br>• Survei Topografi & Batimetri Pelabuhan (2017)"
+                city: "Ancol, Jakarta",
+                lat: -6.1250, lng: 106.8333,
+                projects: "• Conceptual Design Review New Ancol Marina Development (2022–2023)"
             },
             {
-                city: "Bantaeng, Sulawesi Selatan",
-                lat: -5.5358, lng: 119.9442,
-                projects: "• Soil Investigation PLTU Bantaeng (2017)<br>• Bathymetry & Met-Ocean Jetty PLTU Bantaeng (2017)"
+                city: "Pakning, Riau",
+                lat: 1.3500, lng: 102.1500,
+                projects: "• Geophysical & Oceanography Survey New Pipeline RU Pertamina Pakning (2023)"
             },
             {
-                city: "Morowali / Bahadopi",
-                lat: -2.8167, lng: 121.8333,
+                city: "Bayan, Kutai",
+                lat: -0.3000, lng: 116.8000,
+                projects: "• Hydrology Survey Bayan (2023)"
+            },
+            {
+                city: "Bahadopi, Morowali",
+                lat: -2.8162128796949366, lng:   122.1605436151667,
                 projects: "• Soil Investigation for Jetty Bahadopi Block 2 & 3 (2023)"
             },
             {
-                city: "Balikpapan, Kalimantan Timur",
-                lat: -1.2379, lng: 116.8529,
-                projects: "• Underwater Geophysical Survey Pertamina (2021)<br>• Survei Batimetri & Studi Kelayakan Pelabuhan (2017)"
+                city: "Manado",
+                lat: 1.4748, lng: 124.8421,
+                projects: "• Reclamation Design in Manado (2023)"
             },
             {
-                city: "Mahakam / Kutai, Kalimantan",
-                lat: -0.5000, lng: 117.2000,
-                projects: "• Hydrology Study Sungai Mahakam (2024)<br>• Hydrology Survey Bayan Resources (2023)"
+                city: "Krakatau",
+                lat: -6.1020, lng: 105.4230,
+                projects: "• Seismic Single Channel Survey Krakatau (2023 & 2019)"
             },
             {
                 city: "Kalimantan Utara",
@@ -628,17 +759,52 @@
                 projects: "• Hydrology Survey for Pipeline Routes & Jetty (2022)"
             },
             {
-                city: "Timor / Kupang",
-                lat: -10.1772, lng: 123.6070,
-                projects: "• Desain Thermal Dispersion Timor 1 (2024)<br>• Environmental Model PLTU Timor 1 (2022)"
+                city: "Muara Karang - Jakarta",
+                lat: -6.1100, lng: 106.7800,
+                projects: "• Bathymetry & Geophysical Survey PJB Muara Karang (2022, 2019, 2016)"
             },
             {
-                city: "Lombok, NTB",
-                lat: -8.6500, lng: 116.3333,
-                projects: "• Perencanaan Desain Pelindung Pantai (2019)<br>• Soil Investigation & Sea Survey Lombok Power Plant (2017)"
+                city: "Sampit, Kalimantan Tengah",
+                lat: -2.5333, lng: 112.9500,
+                projects: "• Studi Kelayakan Perencanaan FSO 3 Lokasi (2022)"
             },
             {
-                city: "Badas, Sumbawa",
+                city: "Toba, Sumatera Utara",
+                lat: 2.4333, lng: 98.8667,
+                projects: "• Penataan F1H2O Balige, Danau Toba (2022)"
+            },
+            {
+                city: "Dumai, Riau",
+                lat: 1.6833, lng: 101.4500,
+                projects: "• Offshore Soil Investigation FEED DHT RU II Dumai (2022 & 2018)"
+            },
+            {
+                city: "Pantai Indah Kapuk, Jakarta",
+                lat: -6.1150, lng: 106.7400,
+                projects: "• River Cleanup System PIK & Scuba Diving (2020–2021)"
+            },
+            {
+                city: "Cilegon, Banten",
+                lat: -6.0174, lng: 106.0163,
+                projects: "• Site and Soil Investigation Cilegon (2021 & 2013)"
+            },
+            {
+                city: "Tarakan",
+                lat: 3.3214, lng: 117.5878,
+                projects: "• Survey Investigation and Design for Port in Tarakan Area (2021)"
+            },
+            {
+                city: "Balikpapan",
+                lat: -1.2379, lng: 116.8529,
+                projects: "• Underwater - Geophysical Survey (2021 & 2020)"
+            },
+            {
+                city: "Tuban, Jawa Timur",
+                lat: -6.9039, lng: 112.0542,
+                projects: "• Benthic Survey & Sediment Sampling (2021)"
+            },
+            {
+                city: "Badas, NTB",
                 lat: -8.4833, lng: 117.4167,
                 projects: "• Revitalisasi Sarana Tambat PT. Pertamina TBBM Badas (2020)"
             },
@@ -648,79 +814,64 @@
                 projects: "• Revitalisasi Sarana Tambat PT. Pertamina TBBM Camplong (2020)"
             },
             {
-                city: "Tuban, Jawa Timur",
-                lat: -6.9039, lng: 112.0542,
-                projects: "• Benthic Survey & Sediment Sampling (2021)"
+                city: "Karawang",
+                lat:  -5.983039447453464, lng: 107.19250597611813,
+                projects: "• Sediment & Water Sampling Karawang (2020)"
             },
             {
-                city: "Ijen / Blawan, Jawa Timur",
-                lat: -8.0583, lng: 114.2417,
-                projects: "• Soil Investigation & Topography Survey Blawan Ijen GPP (2024 & 2022)"
+                city: "Futong Jetty, Riau",
+                lat: 0.8189248867704454, lng: 102.40031910371691,
+                projects: "• Bathymetry Survey for The New Futong Jetty (2019)"
             },
             {
-                city: "Jakarta & Kepulauan Seribu",
-                lat: -6.2088, lng: 106.8456,
-                projects: "• Technical Advisory Ocean Engineer Kep. Seribu (2024)<br>• Conceptual Design Review New Ancol Marina (2022–2023)<br>• Seawall & Geophysical Survey Muara Karang (2019–2022)<br>• River Cleanup System PIK (2021)"
+                city: "Lombok",
+                lat: -8.6500, lng: 116.3333,
+                projects: "• Perencanaan Desain Pelindung Pantai (2019)<br>• Soil Investigation & Sea Survey Lombok (2017)"
             },
             {
-                city: "Cilegon & Banten",
-                lat: -6.0174, lng: 106.0163,
-                projects: "• Site & Soil Investigation Cilegon (2021)<br>• Met-Oceanography Survey PLTU Lontar (2016)<br>• Survei Hidrografi Ciujung River (2016)"
-            },
-            {
-                city: "Krakatau, Banten",
-                lat: -6.1020, lng: 105.4230,
-                projects: "• Seismic Single Channel Survey (2023 & 2017)"
-            },
-            {
-                city: "Lampung & Pulau Balak",
-                lat: -5.4500, lng: 105.2667,
-                projects: "• Met-Oceanography, Bathymetry & DED Jetty Lampung (2024)<br>• Perencanaan Dermaga Pulau Balak (2022–2023)"
-            },
-            {
-                city: "Jambi",
-                lat: -1.6101, lng: 103.6131,
-                projects: "• Survei Batimetri & Pasang Surut Alur Pelayaran Sungai Jambi (2017)"
-            },
-            {
-                city: "Sibolga, Sumatera Utara",
-                lat: 1.7417, lng: 98.7786,
-                projects: "• Topography And Oceanography Survey Sibolga (2024)"
-            },
-            {
-                city: "Siak, Riau",
-                lat: 0.7761, lng: 102.0519,
-                projects: "• Bathymetry Survey in Siak (2024)"
-            },
-            {
-                city: "Batam & Riau",
-                lat: 1.0456, lng: 104.0305,
-                projects: "• Oceanography & Coastal Design Opus Bay Batam (2024)<br>• Bathymetry Survey New Futong Jetty Riau (2019)<br>• Seismic Single Channel IUP Durai (2016)"
-            },
-            {
-                city: "Dumai & Pakning, Riau",
-                lat: 1.6833, lng: 101.4500,
-                projects: "• Ocean Survey & Soil Investigation Arun LNG Hub (2024)<br>• Geophysical Survey New Pipeline RU Pakning (2023)<br>• Offshore Soil Investigation FEED DHT RU II Dumai (2022)"
-            },
-            {
-                city: "Karimun Island, Kep. Riau",
-                lat: 1.0100, lng: 103.4350,
-                projects: "• Geophysical Survey - Seismic Single Channel Karimun (2018)"
-            },
-            {
-                city: "Ambon, Maluku",
+                city: "Ambon",
                 lat: -3.6959, lng: 128.1814,
                 projects: "• Soil Investigation, Topography & Hydro-Oceanography Survey (2019)"
             },
             {
-                city: "Bali (Nusa Penida & Selat Lirung)",
-                lat: -8.6705, lng: 115.2126,
-                projects: "• Pemodelan Potensi Arus Laut PLTAL (2015)"
+                city: "Gorontalo",
+                lat: 0.5400, lng: 123.0595,
+                projects: "• Topografi, Batimetri & Pasang Surut Pelabuhan (2017)<br>• Penyelidikan Geoteknik PLTG (2016)"
             },
             {
-                city: "Papua (Wilayah Umum)",
-                lat: -4.2699, lng: 138.0804,
-                projects: "• Survei Hidrografi Paket 6 Papua (2016)"
+                city: "Bantaeng, Sulawesi Selatan",
+                lat: -5.5358, lng: 119.9442,
+                projects: "• Soil Investigation & Met-Ocean Jetty PLTU Bantaeng (2017)"
+            },
+            {
+                city: "Kuala Tungkal, Jambi",
+                lat: -0.8013208509902835, lng: 103.4719819906898,
+                projects: "• Survei Batimetri & Pasang Surut Alur Pelayaran Sungai Jambi (2017)"
+            },
+            {
+                city: "Serang, Banten",
+                lat: -5.973270709472493, lng: 106.35657488035075,
+                projects: "• Survei Hidrografi Ciujung River (2016)"
+            },
+            {
+                city: "Jayapura, Papua (Utara dekat pantai)",
+                lat: -2.5337, lng: 140.7181,
+                projects: "• Survei Hidrografi Paket 6 LPI Papua (2016)"
+            },
+            {
+                city: "Lontar, Banten",
+                lat: -6.0333, lng: 106.3833,
+                projects: "• Met-Oceanography Survey PLTU Lontar (2016)"
+            },
+            {
+                city: "Kelolokan, Kalimantan Timur",
+                lat: -0.5500, lng: 117.1000,
+                projects: "• Survei Hidrografi Met-Ocean Dermaga Kelolokan (2016)"
+            },
+            {
+                city: "Bali & Kep. Riau (PLTAL)",
+                lat: -8.6705, lng: 115.2126,
+                projects: "• Pemodelan Potensi Arus Laut PLTAL (2015)"
             }
         ];
 
@@ -753,7 +904,7 @@
             });
         }
 
-        window.addEventListener('DOMContentLoaded', () => { filterYear('2024'); });
+        window.addEventListener('DOMContentLoaded', () => { filterYear('2026'); });
 
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
