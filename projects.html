@@ -667,49 +667,6 @@
             maxZoom: 24 // BATAS ZOOM AKHIR
         }).addTo(map);
 
-        // GRID KOORDINAT DINAMIS (NATIVE LEAFLET TANPA PLUGIN)
-        // Grid akan selalu muncul di area yang Anda lihat, sedalam apapun Anda melakukan Zoom In
-        let gridLines = [];
-        function drawGrid() {
-            // Bersihkan grid sebelumnya agar tidak menumpuk
-            gridLines.forEach(line => map.removeLayer(line));
-            gridLines = [];
-
-            const bounds = map.getBounds();
-            const zoom = map.getZoom();
-            
-            // Jarak grid mengecil secara otomatis saat di-zoom in
-            let interval = 2; 
-            if (zoom > 6 && zoom <= 8) interval = 1;
-            if (zoom > 8 && zoom <= 10) interval = 0.5;
-            if (zoom > 10 && zoom <= 12) interval = 0.1;
-            if (zoom > 12 && zoom <= 14) interval = 0.05;
-            if (zoom > 14 && zoom <= 16) interval = 0.01;
-            if (zoom > 16) interval = 0.002;
-
-            const north = Math.ceil(bounds.getNorth() / interval) * interval;
-            const south = Math.floor(bounds.getSouth() / interval) * interval;
-            const east = Math.ceil(bounds.getEast() / interval) * interval;
-            const west = Math.floor(bounds.getWest() / interval) * interval;
-
-            const gridStyle = { color: '#0f2137', weight: 1, opacity: 0.25, interactive: false, dashArray: '4, 4' };
-
-            // Gambar Garis Lintang (Latitude) horizontal
-            for (let lat = south; lat <= north + (interval/2); lat += interval) {
-                let line = L.polyline([[lat, -180], [lat, 180]], gridStyle).addTo(map);
-                gridLines.push(line);
-            }
-            // Gambar Garis Bujur (Longitude) vertikal
-            for (let lng = west; lng <= east + (interval/2); lng += interval) {
-                let line = L.polyline([[-90, lng], [90, lng]], gridStyle).addTo(map);
-                gridLines.push(line);
-            }
-        }
-
-        // Panggil fungsi saat peta bergeser atau di zoom
-        map.on('moveend', drawGrid);
-        drawGrid(); // Panggilan pertama kali saat dimuat
-
         // DATA TITIK PROYEK SPESIFIK TIAP KOTA / WILAYAH (TIDAK ADA KOORDINAT YANG DIUBAH DARI SEBELUMNYA)
         const cityProjects = [
             {
